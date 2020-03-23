@@ -23,8 +23,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->boolean('parental_control')->default(0);
             $table->timestamps();
-            $table->softDeletes('deleted_at');
-            $table->boolean('deleted')->default(0);    
+            $table->softDeletes();
             $table->foreignId('subscription_id')->constrained()->nullable();
             $table->foreignId('billing_method_id')->constrained()->nullable();
         });

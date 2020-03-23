@@ -20,7 +20,6 @@ class CreateMoviesTable extends Migration
             $table->string('urlMiniature',255);
             $table->timestamps();
             $table->softdeletes();
-            $table->boolean('deleted')->default(0);
         });
     }
 

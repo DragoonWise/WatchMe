@@ -30,7 +30,7 @@ class CreateBillingMethodsTable extends Migration
             $table->string('country_code', 2);
             $table->integer('zip');
             $table->timestamps();
-            $table->softDeletes('deleted_at');
+            $table->softDeletes();
         });
     }
 

@@ -19,7 +19,7 @@ class CreateBillingsTable extends Migration
             $table->string('ticket_tumber', 255);
             $table->float('amount_ht');
             $table->timestamps();
-            $table->softDeletes('deleted_at');
+            $table->softDeletes();
             $table->foreignId('users_id')->constrained();
             $table->foreignId('billing_methods_id')->constrained();
         });

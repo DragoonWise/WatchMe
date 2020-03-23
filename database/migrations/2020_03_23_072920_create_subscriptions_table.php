@@ -20,7 +20,7 @@ class CreateSubscriptionsTable extends Migration
             $table->string('plan_id', 255);
             $table->float('amount');
             $table->timestamps();
-            $table->softDeletes('deleted_at');
+            $table->softDeletes();
         });
     }
 
