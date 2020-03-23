@@ -24,8 +24,8 @@ class CreateUsersTable extends Migration
             $table->boolean('parental_control')->default(0);
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('subscription_id')->constrained()->nullable();
-            $table->foreignId('billing_method_id')->constrained()->nullable();
+            $table->foreignId('subscription_id')->nullable()->constrained();
+            $table->foreignId('billing_method_id')->nullable()->constrained();
         });
     }
 
