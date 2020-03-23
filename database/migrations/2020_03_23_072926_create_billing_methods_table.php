@@ -31,7 +31,6 @@ class CreateBillingMethodsTable extends Migration
             $table->integer('zip');
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            $table->boolean('deleted')->default(0);
         });
     }
 

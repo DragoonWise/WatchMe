@@ -21,7 +21,6 @@ class CreateSubscriptionsTable extends Migration
             $table->float('amount');
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            $table->boolean('deleted')->default(0);
         });
     }
 

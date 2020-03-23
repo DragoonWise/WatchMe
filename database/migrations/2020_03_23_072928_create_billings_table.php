@@ -20,7 +20,6 @@ class CreateBillingsTable extends Migration
             $table->float('amount_ht');
             $table->timestamps();
             $table->softDeletes('deleted_at');
-            $table->boolean('deleted')->default(0);
             $table->foreignId('users_id')->constrained();
             $table->foreignId('billing_methods_id')->constrained();
         });
