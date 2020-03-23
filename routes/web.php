@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', 'LoginController@create');
+Route::get('registration', 'RegistrationController@create');
+// Auth::routes();
+
 Route::get('/admin', 'AdminController@dashboard');
 Route::get('/admin/users/{page?}', 'AdminController@users');
 Route::get('/admin/user/{id}', 'AdminController@user');
-
-Route::get('/', function () {
-    return view('welcome');
-});

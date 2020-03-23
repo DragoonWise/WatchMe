@@ -6,3 +6,52 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+bg-beige {
+    background-color: #E5DECB;
+}
+
+.beige,
+#login-link {
+    color: #E5DECB;
+}
+
+#login-link :hover {
+    color: rgb(255, 255, 255);
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.responsive-input {
+    width: 95%;
+}
+
+/* TAILLE TELEPHONE */
+
+@media (max-width: 575.98px) {}
+
+/* TAILLE IPAD */
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .responsive-input {
+        width: 80%;
+    }
+}
+
+/* TAILLE ECRAN MOYEN */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .responsive-input {
+        width: 75%;
+    }
+}
+
+/* TAILLE ECRAN GRAND */
+
+@media (min-width: 992px) {
+    .responsive-input {
+        width: 30%;
+    }
+}
