@@ -6,7 +6,7 @@ Regardez des films en ligne sur WatchMe, depuis votre PC, votre tablette ou votr
 WatchMe - Inscription
 @endsection
 @section('content')
-<form action="{{ url('users') }}" method="POST">
+<form action="" method="POST">
     @csrf
     <div class="d-flex flex-column align-items-center text-light">
         <label for="login" class="beige font-weight-bold  fs-20">Identifiant</label>

@@ -6,7 +6,7 @@ Regardez des films en ligne sur WatchMe, depuis votre PC, votre tablette ou votr
 WatchMe - Connexion
 @endsection
 @section('content')
-<form action="{{ url('users') }}" method="POST">
+<form action="" method="POST">
     @csrf
     <div class="d-flex flex-column align-items-center text-light">
         <label for="login" class="beige font-weight-bold  fs-20">Identifiant</label>
@@ -16,8 +16,8 @@ WatchMe - Connexion
         <button type="submit" class="btn bg-beige justify-content-center font-weight-bold mt-4 fs-20">Connexion</button>
     </div>
 </form>
-<div class="text-center"><a id="login-link" href="{{ url('/registration') }}"
-        class="beige fs-20 text-center">S'inscrire</a></div>
+<div class="text-center"><a id="login-link" href="{{ url('register') }}" class="beige fs-20 text-center">S'inscrire</a>
+</div>
 
 
 @endsection

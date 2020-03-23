@@ -26,6 +26,9 @@
         @guest
         <div class="container d-flex justify-content-center"><img src="https://i.ibb.co/tY3SpjN/watchme.png"
                 alt="watchme" title="Logo WatchMe" class="img-fluid" border="0"></div>
+        <main class="py-4">
+            @yield('content')
+        </main>
         @else
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -72,9 +75,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+
     </div>
 </body>
 
