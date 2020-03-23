@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class logactivities extends Model
+class LogActivities extends Model
 {
     //
 }

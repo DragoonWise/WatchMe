@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLinkusermoviesTable extends Migration
+class CreateMoviesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreateLinkusermoviesTable extends Migration
      */
     public function up()
     {
-        Schema::create('linkusermovies', function (Blueprint $table) {
+        Schema::create('movies', function (Blueprint $table) {
             $table->id();
+            $table->string('reference',255);
+            $table->string('title',255);
+            $table->string('urlMiniature',255);
             $table->timestamps();
+            $table->softdeletes();
+            $table->boolean('deleted')->default(0);
         });
     }
 
@@ -26,6 +31,6 @@ class CreateLinkusermoviesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('linkusermovies');
+        Schema::dropIfExists('movies');
     }
 }
