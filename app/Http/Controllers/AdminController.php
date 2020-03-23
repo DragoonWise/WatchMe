@@ -22,14 +22,13 @@ class AdminController extends Controller
     /**
      * Users List
      *
-     * @param  int  $page
      * @return View
      */
-    public function users($page = 1)
+    public function users()
     {
         $users = User::paginate(15);
 
-        return view('admin/users',['page'=>$page,'users'=>$users]);
+        return view('admin/users',['users'=>$users]);
     }
 
     /**

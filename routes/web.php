@@ -17,5 +17,5 @@ Route::get('/', 'LoginController@create');
 Route::get('/register', 'RegisterController@create');
 
 Route::get('/admin', 'AdminController@dashboard');
-Route::get('/admin/users/{page?}', 'AdminController@users');
+Route::get('/admin/users', 'AdminController@users');
 Route::get('/admin/user/{id}', 'AdminController@user');
