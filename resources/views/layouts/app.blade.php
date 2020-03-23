@@ -69,12 +69,12 @@
                                 </form>
                             </div>
                         </li>
-                        @endguest
+
                     </ul>
                 </div>
             </div>
         </nav>
-
+        @endguest
 
     </div>
 </body>
