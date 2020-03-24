@@ -40,6 +40,7 @@
             @yield('content')
         </main>
 
+        {{-- Spinner News --}}
         <h4 class="pl-5 beige font-weight-bold">Les nouveautés WatchMe</h4>
         <div class="text-center my-3">
             <div id="newsCarousel" class="carousel slide w-100">
@@ -94,6 +95,10 @@
             </div>
         </div>
     </div>
+
+
+
+
     @else
     {{-- Header --}}
     <div class="d-md-flex align-items-center">
@@ -103,7 +108,7 @@
         </a>
         <form class="col-lg-6 col-md-4 offset-lg-1 order-1 order-md-0" action="/search" method="POST" role="search">
             {{ csrf_field() }}
-            <div class="input-group">
+            <div class="input-group shadow">
                 <input type="text" class="form-control" name="q" placeholder="Rechercher un film"> <span
                     class="input-group-btn">
                     <button type="submit" class="btn bg-beige">
@@ -122,8 +127,8 @@
             <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navbarToggler">
                 <div class="navbar-nav ">
                     <a class="beige fs-15 font-weight-bold px-2" href="{{ route('catalogue') }}">Catalogue</a>
-                    <a class="beige fs-15 font-weight-bold px-2" href="">Favoris</a>
-                    <a class="beige fs-15 font-weight-bold px-2" href="">Compte</a>
+                    <a class="beige fs-15 font-weight-bold px-2" href="{{ url('favoris') }}">Favoris</a>
+                    <a class="beige fs-15 font-weight-bold px-2" href="{{ url('account') }}">Compte</a>
                     <a class="px-2" href="{{ route('logout') }}"
                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         <i class="beige fas fa-sign-out-alt fs-20"></i>
@@ -134,20 +139,18 @@
                 </form>
             </div>
         </nav>
-
     </div>
-
-
-
     <br>
+
+
     {{-- Page Content --}}
     @yield('content')
 
     {{-- Footer --}}
-    <div class="d-md-flex flex-column flex-md-row align-items-center">
-        <div class="col-12 col-md-4 text-center">
-            <a class="beige fs-15 px-2 font-weight-bold" href="">Mentions légales</a>
-            <a class="beige fs-15 px-2 font-weight-bold" href="">Conditions d'utilisation</a>
+    <div class="d-md-flex flex-column flex-md-row align-items-center py-5">
+        <div class="col-12 col-md-4 text-center text-md-left">
+            <a class="beige fs-15 px-2 font-weight-bold" href="{{ url('/mentions') }}">Mentions légales</a>
+            <a class="beige fs-15 px-2 font-weight-bold" href="{{ url('/cgu') }}">Conditions d'utilisation</a>
         </div>
         <div class="col-12 col-md-4 text-center text-md-right order-md-1">
             <a href="">
@@ -159,13 +162,12 @@
             <a href="">
                 <i class="beige fs-20 fab fa-instagram-square"></i>
             </a>
-            <a class="beige fs-15 px-2 font-weight-bold" href="">Nous contacter</a>
+            <a class="beige fs-15 px-2 font-weight-bold" href="{{ url('/contact') }}">Nous contacter</a>
         </div>
         <div class="col-12 col-md-4 text-center">
             <span class="beige fs-15 font-weight-bold ">© 2020 WatchMe</span>
         </div>
     </div>
-
     @endguest
 
 </body>

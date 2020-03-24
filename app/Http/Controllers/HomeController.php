@@ -30,4 +30,24 @@ class HomeController extends Controller
     {
         return view('catalogue');
     }
+
+    public function favoris()
+    {
+        return view('favoris');
+    }
+
+    public function mentions()
+    {
+        return view('mentions');
+    }
+
+    public function cgu()
+    {
+        return view('cgu');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }

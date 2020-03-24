@@ -13,12 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Public
 Auth::routes();
+
+// Public connected
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/catalogue', 'HomeController@catalogue')->name('catalogue');
+Route::get('/favoris', 'HomeController@favoris')->name('favoris');
+Route::get('/mentions', 'HomeController@mentions')->name('mentions');
+Route::get('/cgu', 'HomeController@cgu')->name('cgu');
+Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::post('/contact', 'HomeController@contact');
 
+// Account
+Route::get('/account', 'AccountController@account')->name('account');
 
-
+// Admin
 Route::get('/admin', 'AdminController@dashboard');
 Route::get('/admin/users', 'AdminController@users');
 Route::get('/admin/user/{id}', 'AdminController@user');

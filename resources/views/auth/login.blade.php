@@ -12,15 +12,16 @@ WatchMe - Connexion
     @csrf
     <div class="d-flex flex-column align-items-center text-light">
         <label for="login" class="beige font-weight-bold  fs-20">{{ __('Username') }}</label>
-        <input type="text" name="login" id="login" class="responsive-input rounded @error('login') is-invalid @enderror"
-            value="{{ old('login') }}" required>
+        <input type="text" name="login" id="login"
+            class="responsive-input shadow rounded @error('login') is-invalid @enderror" value="{{ old('login') }}"
+            required>
         @error('login')
         <div class="invalid-feedback responsive-input">Indentifiant ou mot de passe invalide.</div>
         @enderror
         <label for="password" class="mt-4 beige font-weight-bold  fs-20">{{ __('Password') }}</label>
         <input type="password" name="password" id="password"
-            class="responsive-input rounded @error('password') is-invalid @enderror" value="{{ old('password') }}"
-            required>
+            class="responsive-input shadow rounded @error('password') is-invalid @enderror"
+            value="{{ old('password') }}" required>
         @if (Route::has('password.request'))
         <a class="beige" href="{{ route('password.request') }}">
             {{ __('Forgot Your Password?') }}
@@ -28,7 +29,7 @@ WatchMe - Connexion
         @endif
 
 
-        <button type="submit" class="btn bg-beige justify-content-center font-weight-bold mt-4 fs-20">
+        <button type="submit" class="btn bg-beige justify-content-center font-weight-bold mt-4 fs-20 shadow">
             {{ __('Login') }}
         </button>
     </div>
