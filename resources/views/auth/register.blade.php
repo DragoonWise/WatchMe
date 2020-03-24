@@ -32,7 +32,7 @@ WatchMe - Inscription
         <div class="invalid-feedback responsive-input">{{ $message }}</div>
         @enderror
         <label for="password-confirm" class="mt-4 beige font-weight-bold  fs-20">{{ __('Confirm Password') }}</label>
-        <input type="password" name="password-confirmirmation" id="password-confirm"
+        <input type="password" name="password_confirmation" id="password-confirm"
             class="form-control responsive-input rounded @error('password-confirm') is-invalid @enderror" required>
         @error('password-confirm')
         <div class="invalid-feedback responsive-input">{{ $message }}</div>
