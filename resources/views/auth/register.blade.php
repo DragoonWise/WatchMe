@@ -18,11 +18,11 @@ WatchMe - Inscription
         @error('login')
         <div class="invalid-feedback responsive-input">{{ $message }}</div>
         @enderror
-        <label for="mail" class="mt-4 beige font-weight-bold fs-20">{{ __('E-Mail Address') }}</label>
-        <input type="mail" name="mail" id="mail"
-            class="form-control responsive-input rounded @error('mail') is-invalid @enderror" value="{{ old('mail') }}"
-            required>
-        @error('mail')
+        <label for="email" class="mt-4 beige font-weight-bold fs-20">{{ __('E-Mail Address') }}</label>
+        <input type="email" name="email" id="email"
+            class="form-control responsive-input rounded @error('email') is-invalid @enderror"
+            value="{{ old('email') }}" required>
+        @error('email')
         <div class="invalid-feedback responsive-input">{{ $message }}</div>
         @enderror
         <label for="password" class="mt-4 beige font-weight-bold fs-20">{{ __('Password') }}</label>
