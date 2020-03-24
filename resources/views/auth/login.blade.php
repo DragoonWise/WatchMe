@@ -1,73 +1,41 @@
 @extends('layouts.app')
-
+@section('description')
+Regardez des films en ligne sur WatchMe, depuis votre PC, votre tablette ou votre téléphone.
+@endsection
+@section('title')
+WatchMe - Connexion
+@endsection
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<h1 class="beige font-weight-bold text-center">{{ __('Login') }}</h1>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+<form action="{{ route('login') }}" method="POST">
+    @csrf
+    <div class="d-flex flex-column align-items-center text-light">
+        <label for="login" class="beige font-weight-bold  fs-20">{{ __('Username') }}</label>
+        <input type="text" name="login" id="login" class="responsive-input rounded @error('login') is-invalid @enderror"
+            value="{{ old('login') }}" required>
+        @error('login')
+        <div class="invalid-feedback">Indentifiant ou mot de passe invalide.</div>
+        @enderror
+        <label for="password" class="mt-4 beige font-weight-bold  fs-20">{{ __('Password') }}</label>
+        <input type="password" name="password" id="password"
+            class="responsive-input rounded @error('password') is-invalid @enderror" value="{{ old('password') }}"
+            required>
+        @if (Route::has('password.request'))
+        <a class="beige" href="{{ route('password.request') }}">
+            {{ __('Forgot Your Password?') }}
+        </a>
+        @endif
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <button type="submit" class="btn bg-beige justify-content-center font-weight-bold mt-4 fs-20">
+            {{ __('Login') }}
+        </button>
     </div>
+</form>
+<div class="text-center mt-4"><a id="login-link" href="{{ url('register') }}"
+        class="beige fs-20 text-center mt-4">S'inscrire</a>
 </div>
+
+
 @endsection

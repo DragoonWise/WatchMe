@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'LoginController@create')->name('home');
-Route::get('/register', 'RegisterController@create');
+Auth::routes();
+Route::get('/', 'Auth\LoginController@ShowLoginForm')->name('login')->middleware('guest');
+Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/register', 'Auth\RegisterController@ShowRegistrationForm')->name('register')->middleware('guest');
 Route::post('/register', 'RegisterController@store');
 
 Route::get('/admin', 'AdminController@dashboard');

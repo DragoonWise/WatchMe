@@ -7,8 +7,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <meta name="description" content="@yield('description')">
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,8 +24,9 @@
 <body>
     <div id="app">
         @guest
-        <div class="container d-flex justify-content-center"><img src="https://i.ibb.co/tY3SpjN/watchme.png"
-                alt="watchme" title="Logo WatchMe" class="img-fluid" border="0"></div>
+        <div class="container d-flex justify-content-center"><a href="{{ url('/') }}"><img
+                    src="https://i.ibb.co/tY3SpjN/watchme.png" alt="watchme" title="Logo WatchMe" class="img-fluid"
+                    border="0"></a></div>
         <main class="py-4">
             @yield('content')
         </main>
