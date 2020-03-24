@@ -7,10 +7,29 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-#logo {
-    max-width: 300px;
+//FontSize
+.fs-30 {
+    font-size: 30px;
 }
 
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+// Dimensions
+.responsive-input {
+    width: 95%;
+}
+
+.slide-icon {
+    width: 5%;
+}
+
+// Color
 .bg-beige {
     background-color: beige;
 }
@@ -24,17 +43,7 @@
     color: rgb(255, 255, 255);
 }
 
-.fs-20 {
-    font-size: 20px;
-}
 
-.fs-15 {
-    font-size: 15px;
-}
-
-.responsive-input {
-    width: 95%;
-}
 
 /* TAILLE TELEPHONE */
 
