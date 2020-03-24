@@ -12,12 +12,12 @@
 }
 
 .bg-beige {
-    background-color: #E5DECB;
+    background-color: beige;
 }
 
 .beige,
 #login-link {
-    color: #E5DECB;
+    color: beige;
 }
 
 #login-link :hover {
@@ -26,6 +26,10 @@
 
 .fs-20 {
     font-size: 20px;
+}
+
+.fs-15 {
+    font-size: 15px;
 }
 
 .responsive-input {

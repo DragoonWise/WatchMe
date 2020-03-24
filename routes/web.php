@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('index');
+Route::get('/catalogue', 'HomeController@catalogue')->name('catalogue');
+
+
 
 Route::get('/admin', 'AdminController@dashboard');
 Route::get('/admin/users', 'AdminController@users');
