@@ -6,7 +6,7 @@
         <tr>
             <th>Login</th>
             <th>Email</th>
-            <th>Abonné</th>
+            <th>@lang('admin.subscription')</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -15,8 +15,15 @@
             <tr>
                 <td>{{$user->login}}</td>
                 <td>{{$user->email}}</td>
-                <td>{{$user->subscription_id == NULL ? 'NON':'OUI'}}</td>
-                <td>Modifier / {{$user->deleted_at == NULL ? 'Supprimer':'Réactiver'}}</td>
+                <td>{{ ucfirst($user->subscription_id == NULL ? __('admin.no') : __('admin.yes')) }}</td>
+                <td>
+                    <i class="fas fa-tools"></i> @lang('admin.modify')
+                    /
+                    {!! $user->deleted_at == NULL ?
+                    '<i class="fas fa-trash"></i> '.__('admin.delete')
+                    : '<i class="fas fa-trash-restore"></i> '.__('admin.reactivate')
+                     !!}
+                </td>
             </tr>
         @endforeach
     </tbody>

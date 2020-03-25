@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
@@ -16,7 +17,9 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-        return view('admin/dashboard');
+        $movie = Movie::findByName('Blade');
+        // dd($movie);
+        return view('admin/dashboard',['movie'=>$movie]);
     }
 
     /**

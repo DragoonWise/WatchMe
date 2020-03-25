@@ -28,6 +28,9 @@ Route::post('/contact', 'HomeController@contact');
 // Account
 Route::get('/account', 'AccountController@account')->name('account');
 
+// API
+Route::get('/api/movies','ApiTmdbController@movies');
+
 // Admin
 Route::get('/admin', 'AdminController@dashboard');
 Route::get('/admin/users', 'AdminController@users');
