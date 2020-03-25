@@ -27,12 +27,26 @@ class AccountController extends Controller
     public function update(UpdateAccount $request)
     {
         $user = Auth::user();
-        $user->login = Request::input('login');
-        $user->email = Request::input('email');
-        if ($request->filled('password')) {
-            $user->password = Hash::make(Request::input('password'));
+        if (Request::has("update")) {
+            $user->login = Request::input('login');
+            $user->email = Request::input('email');
+            if ($request->filled('password')) {
+                $user->password = Hash::make(Request::input('password'));
+            }
+        }
+        if (Request::has("parental_control_hidden")) {
+            if (Request::input('parental_control') == null) {
+                $user->parental_control = 0;
+            } else {
+                $user->parental_control = 1;
+            }
         }
         $user->save();
         return redirect('/account');
+    }
+
+    public function subscription()
+    {
+        return view('subscription');
     }
 }

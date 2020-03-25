@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('description')
-Regardez des films en ligne sur WatchMe, depuis votre PC, votre tablette ou votre téléphone.
+{{ __('main.description') }}
 @endsection
 @section('title')
 WatchMe
@@ -8,7 +8,7 @@ WatchMe
 @section('content')
 
 
-<h4 class="pl-5 beige font-weight-bold">Les nouveautés WatchMe</h4>
+<h4 class="pl-5 beige font-weight-bold">{{ __('main.news') }}</h4>
 <div class="text-center my-3">
     <div id="newsCarousel" class="carousel slide w-100">
         <div class="carousel-inner w-100" role="listbox">
@@ -41,17 +41,17 @@ WatchMe
         <a class="carousel-control-prev justify-content-start pl-2 slide-icon" href="#newsCarousel" role="button"
             data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only">{{ __('main.previous') }}</span>
         </a>
         <a class="carousel-control-next justify-content-end pr-2 slide-icon" href="#newsCarousel" role="button"
             data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="sr-only">{{ __('main.next') }}</span>
         </a>
     </div>
 </div>
 
-<h4 class="pl-5 beige font-weight-bold">Le top WatchMe</h4>
+<h4 class="pl-5 beige font-weight-bold">{{ __('main.top') }}</h4>
 <div class="text-center my-3">
     <div id="topCarousel" class="carousel slide w-100">
         <div class="carousel-inner w-100" role="listbox">
@@ -84,17 +84,17 @@ WatchMe
         <a class="carousel-control-prev justify-content-start pl-2 slide-icon" href="#topCarousel" role="button"
             data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only">{{ __('main.previous') }}</span>
         </a>
         <a class="carousel-control-next justify-content-end pr-2 slide-icon" href="#topCarousel" role="button"
             data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="sr-only">{{ __('main.next') }}</span>
         </a>
     </div>
 </div>
 
-<h4 class="pl-5 beige font-weight-bold">Films conseillés pour vous</h4>
+<h4 class="pl-5 beige font-weight-bold">{{ __('main.advice') }}</h4>
 <div class="text-center my-3">
     <div id="adviceCarousel" class="carousel slide w-100">
         <div class="carousel-inner w-100" role="listbox">
@@ -127,12 +127,12 @@ WatchMe
         <a class="carousel-control-prev justify-content-start pl-2 slide-icon" href="#adviceCarousel" role="button"
             data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only">{{ __('main.previous') }}</span>
         </a>
         <a class="carousel-control-next justify-content-end pr-2 slide-icon" href="#adviceCarousel" role="button"
             data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="sr-only">{{ __('main.next') }}</span>
         </a>
     </div>
 </div>

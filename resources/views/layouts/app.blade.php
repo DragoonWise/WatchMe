@@ -41,7 +41,7 @@
         </main>
 
         {{-- Spinner News --}}
-        <h4 class="pl-5 beige font-weight-bold">Les nouveautés WatchMe</h4>
+        <h4 class="pl-5 beige font-weight-bold">{{ __('main.news') }}</h4>
         <div class="text-center my-3">
             <div id="newsCarousel" class="carousel slide w-100">
                 <div class="carousel-inner w-100" role="listbox">
@@ -85,12 +85,12 @@
                 <a class="carousel-control-prev justify-content-start pl-2 slide-icon" href="#newsCarousel"
                     role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
+                    <span class="sr-only">{{ __('main.previous') }}</span>
                 </a>
                 <a class="carousel-control-next justify-content-end pr-2 slide-icon" href="#newsCarousel" role="button"
                     data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
+                    <span class="sr-only">{{ __('main.next') }}</span>
                 </a>
             </div>
         </div>
@@ -109,7 +109,7 @@
         <form class="col-lg-6 col-md-4 offset-lg-1 order-1 order-md-0" action="/search" method="POST" role="search">
             {{ csrf_field() }}
             <div class="input-group shadow">
-                <input type="text" class="form-control" name="q" placeholder="Rechercher un film"> <span
+                <input type="text" class="form-control" name="q" placeholder="{{ __('main.search') }}"> <span
                     class="input-group-btn">
                     <button type="submit" class="btn bg-beige">
                         <i class="fas fa-search"></i>
@@ -126,9 +126,12 @@
             </button>
             <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navbarToggler">
                 <div class="navbar-nav ">
-                    <a class="beige fs-15 font-weight-bold px-2" href="{{ route('catalogue') }}">Catalogue</a>
-                    <a class="beige fs-15 font-weight-bold px-2" href="{{ url('favoris') }}">Favoris</a>
-                    <a class="beige fs-15 font-weight-bold px-2" href="{{ url('account') }}">Compte</a>
+                    <a class="beige fs-15 font-weight-bold px-2"
+                        href="{{ route('catalogue') }}">{{ __('main.catalog') }}</a>
+                    <a class="beige fs-15 font-weight-bold px-2"
+                        href="{{ url('favoris') }}">{{ __('main.favorites') }}</a>
+                    <a class="beige fs-15 font-weight-bold px-2"
+                        href="{{ url('account') }}">{{ __('main.account') }}</a>
                     <a class="px-2" href="{{ route('logout') }}"
                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         <i class="beige fas fa-sign-out-alt fs-20"></i>
@@ -149,8 +152,8 @@
     {{-- Footer --}}
     <div class="d-md-flex flex-column flex-md-row align-items-center py-5">
         <div class="col-12 col-md-4 text-center text-md-left">
-            <a class="beige fs-15 px-2 font-weight-bold" href="{{ url('/mentions') }}">Mentions légales</a>
-            <a class="beige fs-15 px-2 font-weight-bold" href="{{ url('/cgu') }}">Conditions d'utilisation</a>
+            <a class="beige fs-15 px-2 font-weight-bold" href="{{ url('/mentions') }}">{{ __('main.legal') }}</a>
+            <a class="beige fs-15 px-2 font-weight-bold" href="{{ url('/cgu') }}">{{ __('main.terms') }}</a>
         </div>
         <div class="col-12 col-md-4 text-center text-md-right order-md-1">
             <a href="">
@@ -162,7 +165,7 @@
             <a href="">
                 <i class="beige fs-20 fab fa-instagram-square"></i>
             </a>
-            <a class="beige fs-15 px-2 font-weight-bold" href="{{ url('/contact') }}">Nous contacter</a>
+            <a class="beige fs-15 px-2 font-weight-bold" href="{{ url('/contact') }}">{{ __('main.contact') }}</a>
         </div>
         <div class="col-12 col-md-4 text-center">
             <span class="beige fs-15 font-weight-bold ">© 2020 WatchMe</span>
