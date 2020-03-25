@@ -44,7 +44,7 @@ class LoginController extends Controller
         return 'login';
     }
 
-    protected function authenticated(Request $request, $user)
+    protected function authenticated(\Illuminate\Http\Request $request, $user)
     {
 
         return LogActivity::create([
