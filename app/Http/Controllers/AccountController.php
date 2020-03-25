@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\UpdateAccount;
+use Auth;
+use Request;
+use Hash;
 
 class AccountController extends Controller
 {
@@ -19,5 +22,17 @@ class AccountController extends Controller
     public function account()
     {
         return view('account');
+    }
+
+    public function update(UpdateAccount $request)
+    {
+        $user = Auth::user();
+        $user->login = Request::input('login');
+        $user->email = Request::input('email');
+        if (!Request::input('password') == '') {
+            $user->password = Hash::make(Request::input('password'));
+        }
+        $user->save();
+        return redirect('/account');
     }
 }

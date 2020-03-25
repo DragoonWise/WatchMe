@@ -32,6 +32,7 @@ Route::post('/contact', function (Request $request) {
 
 // Account
 Route::get('/account', 'AccountController@account')->name('account');
+Route::POST('/account', 'AccountController@update');
 
 // API
 Route::get('/api/movies', 'ApiTmdbController@movies');
