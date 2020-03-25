@@ -71,6 +71,9 @@ WatchMe - {{ __('main.account') }}
                 </div>
 
             </form>
+            <a class="btn btn-dark beige fs-20 shadow-sm font-weight-bold" href="{{ route('log') }}">
+                {{ __('account.log') }}
+            </a>
         </div>
     </div>
 </div>

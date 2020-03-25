@@ -8,6 +8,7 @@ return [
     'infos' => 'Mes informations',
     'subscription' => 'Mon abonnement',
     'options' => 'Options',
-    'nosub' => 'Vous n\'êtes pas abonné à WatchMe en ce moment. Cliquez sur le bouton Ajouter pour souscrire à l\'une de nos offres.'
+    'nosub' => 'Vous n\'êtes pas abonné à WatchMe en ce moment. Cliquez sur le bouton Ajouter pour souscrire à l\'une de nos offres.',
+    'log' => 'Activité du compte'
 
 ];

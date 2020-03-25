@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('description')
-Regardez des films en ligne sur WatchMe, depuis votre PC, votre tablette ou votre téléphone.
+{{ __('main.description') }}
 @endsection
 @section('title')
-WatchMe - Mentions légales
+WatchMe - {{ __('main.legal') }}
 @endsection
 @section('content')
 <div class="container bg-beige mb-5 shadow">
-    <h1 class="text-center pt-2 font-weight-bold">Mentions légales</h1>
+    <h1 class="text-center pt-2 font-weight-bold">{{ __('main.legal') }}</h1>
     <p class="py-3 px-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem nemo iusto aspernatur modi quas
         corrupti magnam
         dignissimos id voluptatem, alias aliquam ipsum commodi odit maxime iste suscipit saepe corporis blanditiis

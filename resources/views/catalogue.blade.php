@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('description')
-Regardez des films en ligne sur WatchMe, depuis votre PC, votre tablette ou votre téléphone.
+{{ __('main.description') }}
 @endsection
 @section('title')
-WatchMe - Résultat
+WatchMe - {{ __('main.catalog') }}
 @endsection
 @section('content')
 Catalogue

@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('description')
-Regardez des films en ligne sur WatchMe, depuis votre PC, votre tablette ou votre téléphone.
+{{ __('main.description') }}
 @endsection
 @section('title')
-WatchMe - Contact
+WatchMe - {{ __('main.contact') }}
 @endsection
 @section('content')
-<h1 class="beige font-weight-bold text-center">{{ __('Contact') }}</h1>
+<h1 class="beige font-weight-bold text-center">{{ __('main.contact') }}</h1>
 <form action="{{ route('contact') }}" method="POST">
     @csrf
     <div class="d-flex flex-column align-items-center text-light">

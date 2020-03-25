@@ -1,13 +1,12 @@
 @extends('layouts.app')
 @section('description')
-{{ __('main.description') }}
-@endsection
+{{ __('main.description') }}@endsection
 @section('title')
-WatchMe - {{ __('main.terms') }}
+WatchMe - {{ __('account.log') }}
 @endsection
 @section('content')
 <div class="container bg-beige mb-5 shadow">
-    <h1 class="text-center pt-2 font-weight-bold">{{ __('main.terms') }}</h1>
+    <h1 class="text-center pt-2 font-weight-bold">{{ __('account.log') }}</h1>
     <p class="py-3 px-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem nemo iusto aspernatur modi quas
         corrupti magnam
         dignissimos id voluptatem, alias aliquam ipsum commodi odit maxime iste suscipit saepe corporis blanditiis

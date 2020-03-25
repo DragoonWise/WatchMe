@@ -49,4 +49,9 @@ class AccountController extends Controller
     {
         return view('subscription');
     }
+
+    public function log()
+    {
+        return view('log');
+    }
 }

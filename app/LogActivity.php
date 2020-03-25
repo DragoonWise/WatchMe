@@ -12,4 +12,7 @@ class LogActivity extends Model
      * @var string
      */
     protected $table = 'log_activies';
+    protected $fillable = [
+        'ip', 'user_id'
+    ];
 }
