@@ -29,7 +29,7 @@ class AccountController extends Controller
         $user = Auth::user();
         $user->login = Request::input('login');
         $user->email = Request::input('email');
-        if (!Request::input('password') == '') {
+        if ($request->filled('password')) {
             $user->password = Hash::make(Request::input('password'));
         }
         $user->save();

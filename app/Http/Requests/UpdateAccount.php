@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use Auth;
 
 class UpdateAccount extends FormRequest
 {
@@ -23,10 +25,11 @@ class UpdateAccount extends FormRequest
      */
     public function rules()
     {
+        $user = Auth::user();
         return [
             'login' => ['string', 'max:255'],
-            'email' => ['string', 'email', 'max:255'],
-            'password' => ['string', 'min:8', 'confirmed'],
+            'email' => ['string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'password' => ['exclude_if:has_password,false|confirmed|string|min:8'],
         ];
     }
 }

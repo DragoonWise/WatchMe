@@ -3,10 +3,10 @@
 Regardez des films en ligne sur WatchMe, depuis votre PC, votre tablette ou votre téléphone.
 @endsection
 @section('title')
-WatchMe - Compte
+WatchMe - {{ __('Account') }}
 @endsection
 @section('content')
-<h1 class="beige font-weight-bold ml-5">Compte - {{ Auth::user()->login }}</h1>
+<h1 class="beige font-weight-bold ml-5">{{ __('Account') }} - {{ Auth::user()->login }}</h1>
 <div class="d-lg-flex">
     <div class="col-12 col-lg-4 px-3">
         <div class="bg-beige shadow mb-3 px-2 py-2">
@@ -29,15 +29,13 @@ WatchMe - Compte
                 @enderror
                 <label for="password" class="mt-4 font-weight-bold fs-20">{{ __('New Password') }}</label>
                 <input type="password" name="password" id="password"
-                    class="form-control  shadow-sm rounded @error('password') is-invalid @enderror"
-                    value="{{ Auth::user()->password }}">
+                    class="form-control  shadow-sm rounded @error('password') is-invalid @enderror">
                 @error('password')
                 <div class="invalid-feedback ">{{ $message }}</div>
                 @enderror
                 <label for="password-confirm" class="mt-4 font-weight-bold  fs-20">{{ __('Confirm Password') }}</label>
                 <input type="password" name="password_confirmation" id="password-confirm"
-                    class="form-control  shadow-sm rounded @error('password-confirm') is-invalid @enderror"
-                    value="{{ Auth::user()->password }}">
+                    class="form-control  shadow-sm rounded @error('password-confirm') is-invalid @enderror">
                 @error('password-confirm')
                 <div class="invalid-feedback ">{{ $message }}</div>
                 @enderror
