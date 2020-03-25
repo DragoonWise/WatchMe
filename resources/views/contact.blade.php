@@ -10,17 +10,19 @@ WatchMe - Contact
 <form action="{{ route('contact') }}" method="POST">
     @csrf
     <div class="d-flex flex-column align-items-center text-light">
-        <label for="object" class="beige font-weight-bold  fs-20">{{ __('Object') }}</label>
-        <input type="text" name="object" id="object"
-            class="responsive-input shadow rounded @error('object') is-invalid @enderror" value="{{ old('object') }}"
+        <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+        <input type="hidden" name="login" value="{{ Auth::user()->login }}">
+        <label for="subject" class="beige font-weight-bold  fs-20">{{ __('Subject') }}</label>
+        <input type="text" name="subject" id="subject"
+            class="responsive-input shadow rounded @error('subject') is-invalid @enderror" value="{{ old('subject') }}"
             required>
-        @error('object')
+        @error('subject')
         <div class="invalid-feedback responsive-input">{{ $message }}</div>
         @enderror
         <label for="content" class="mt-4 beige font-weight-bold  fs-20">{{ __('Content') }}</label>
         <textarea rows="10" name="content" id="content"
             class="responsive-input shadow rounded @error('content') is-invalid @enderror" value="{{ old('content') }}"
-            placeholder="Votre message" required></textarea>
+            placeholder="{{ __('Content') }}" required></textarea>
         @error('content')
         <div class="invalid-feedback responsive-input">{{ $message }}</div>
         @enderror
@@ -29,4 +31,6 @@ WatchMe - Contact
         </button>
     </div>
 </form>
+
+
 @endsection
