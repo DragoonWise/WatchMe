@@ -21,7 +21,7 @@ class Tmdb
 
 	public function findById($id)
 	{
-		return $this->endpointRequest('/dummy/post/'.$id);
+		return $this->endpointRequest("/3/movie/{$id}{$this->startrequest}&language=fr-FR");
 	}
 
     public function findByName($name,int $page = 1)
