@@ -5,7 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class subscriptions extends Model
+class Subscription extends Model
 {
     use SoftDeletes;
+
+    protected $fillable = [
+        'formula', 'description', 'plan_id', 'amount'
+    ];
 }
