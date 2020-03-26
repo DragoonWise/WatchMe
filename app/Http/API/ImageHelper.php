@@ -13,6 +13,6 @@ class ImageHelper
 
     public function getImageURL($partialURL)
     {
-        return $this->baseURI.$partialURL;
+        return $this->baseURI.'/original'.$partialURL;
     }
 }

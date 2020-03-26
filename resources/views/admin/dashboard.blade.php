@@ -1,4 +1,5 @@
 @extends('admin.base')
 @section('content')
- test
+{{ $movie->title }}
+<img src="{{ $imgHelper->getImageURL($movie->urlMiniature) }}" alt="">
 @endsection

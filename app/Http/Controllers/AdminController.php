@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\API\ImageHelper;
 use App\Movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,7 @@ class AdminController extends Controller
     {
         $movie = Movie::findByName('Blade');
         // dd($movie);
-        return view('admin/dashboard',['movie'=>$movie]);
+        return view('admin/dashboard',['movie'=>$movie, 'imgHelper' => new ImageHelper()]);
     }
 
     /**
