@@ -11,7 +11,7 @@ class ApiTmdbController extends Controller
 
     public function __construct(Tmdb $tmdb)
     {
-    	$this->tmdb = $tmdb;
+        $this->tmdb = $tmdb;
     }
 
     /**
@@ -19,11 +19,10 @@ class ApiTmdbController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function movies()
+    public function movies(?int $page = 1)
     {
-        $tmdb = $this->tmdb->all();
-
-    	return compact('tmdb');
+        $tmdb = $this->tmdb->all($page);
+        return json_encode($tmdb);
     }
 
     /**
@@ -32,10 +31,21 @@ class ApiTmdbController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function movieById($id)
     {
-        //
+        $tmdb = $this->tmdb->findById($id);
+        return json_encode($tmdb);
     }
 
-
+    /**
+     * Display the specified resource.
+     *
+     * @param  string  $name
+     * @return \Illuminate\Http\Response
+     */
+    public function movieByName($name, ?int $page = 1)
+    {
+        $tmdb = $this->tmdb->findByName($name, $page);
+        return json_encode($tmdb);
+    }
 }
