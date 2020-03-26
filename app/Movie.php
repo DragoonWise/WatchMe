@@ -43,6 +43,19 @@ class Movie extends Model
         return null;
     }
 
+    protected static function getAPIById($id)
+    {
+        $res = Http::get('http://localhost/WatchMe/public/' . 'api/movie/' . $id);
+        $results = $res->json();
+        $movie = $results;
+        $obj = new Movie();
+        $obj->title = $movie['title'];
+        $obj->reference = $movie['id'];
+        $obj->urlMiniature = $movie['poster_path'];
+        $obj->save();
+        return $obj;
+    }
+
     public static function findByName($name)
     {
         $result = Movie::where('title', $name)->first();
@@ -50,5 +63,27 @@ class Movie extends Model
         if ($result)
             return $result;
         return self::getAPIByName($name);
+    }
+
+    public static function findByTmdbId($id)
+    {
+        $result = Movie::where('reference', $id)->first();
+
+        if ($result)
+            return $result;
+        return self::getAPIById($id);
+    }
+
+    public static function getPopulars(int $page = 1)
+    {
+        $res = Http::get('http://localhost/WatchMe/public/' . 'api/movies/populars/' . $page);
+        $results = $res->json();
+        $movies = $results['results'];
+        // dd($movies);
+        $return = [];
+        foreach ($movies as $movie) {
+            $return[] = self::findByTmdbId($movie['id']);
+        }
+        return $return;
     }
 }

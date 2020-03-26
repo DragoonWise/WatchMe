@@ -37,6 +37,7 @@ Route::get('/subscription', 'AccountController@subscription')->name('subscriptio
 Route::get('/log', 'AccountController@log')->name('log');
 
 // API
+Route::get('/api/movies/populars/{page?}', 'ApiTmdbController@populars');
 Route::get('/api/movies/{page?}', 'ApiTmdbController@movies');
 Route::get('/api/movie/name/{name}/{page?}', 'ApiTmdbController@movieByName');
 Route::get('/api/movie/{id}', 'ApiTmdbController@movieById');

@@ -17,6 +17,7 @@ class ApiTmdbController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  int|null  $page
      * @return \Illuminate\Http\Response
      */
     public function movies(?int $page = 1)
@@ -46,6 +47,18 @@ class ApiTmdbController extends Controller
     public function movieByName($name, ?int $page = 1)
     {
         $tmdb = $this->tmdb->findByName($name, $page);
+        return json_encode($tmdb);
+    }
+
+        /**
+     * Display a listing of the resource.
+     *
+     * @param  int|null  $page
+     * @return \Illuminate\Http\Response
+     */
+    public function populars(?int $page = 1)
+    {
+        $tmdb = $this->tmdb->getPopulars($page);
         return json_encode($tmdb);
     }
 }

@@ -29,6 +29,12 @@ class Tmdb
 		return $this->endpointRequest("/3/search/movie{$this->startrequest}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=$page&query=".htmlspecialchars($name));
     }
 
+    // https://api.themoviedb.org/3/movie/popular?api_key=07781e9d3ce562b41e44f16649ef204f&language=fr-FR&page=1
+	public function getPopulars(int $page = 1)
+	{
+		return $this->endpointRequest('/3/movie/popular'.$this->startrequest.'&language=fr-FR&page='.$page);
+	}
+
 	public function endpointRequest($url)
 	{
 		try {
