@@ -13,7 +13,7 @@ WatchMe - {{ __('account.subscription') }}
             <div id="formula_block" class="col-12 col-md-6 px-5 pb-5">
                 <h2 class="text-center font-weight-bold">Forfait</h2>
                 <div class="custom-control custom-radio">
-                    <input type="radio" id="formula1" name="formula" class="custom-control-input">
+                    <input type="radio" id="formula1" name="formula" class="custom-control-input" checked>
                     <label class="custom-control-label" for="formula1"><span class="font-weight-bold">10€ /
                             1 mois</span></label>
                 </div>
