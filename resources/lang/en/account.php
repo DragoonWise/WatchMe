@@ -9,5 +9,6 @@ return [
     'subscription' => 'My Subscription',
     'options' => 'Options',
     'nosub' => 'You are not subscribed to WatchMe at this time. Click on the add button to subscribe to one of our offers.',
-    'log' => 'Account Activity'
+    'log' => 'Account Activity',
+    'subscribe' => 'Subscribe'
 ];

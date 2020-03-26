@@ -9,7 +9,7 @@ WatchMe - {{ __('main.account') }}
 <h1 class="beige font-weight-bold ml-5">{{ __('main.account') }} - {{ Auth::user()->login }}</h1>
 <div class="d-lg-flex">
     <div class="col-12 col-lg-4 px-3">
-        <div class="bg-beige shadow mb-3 px-2 py-2">
+        <div class="bg-beige shadow mb-3 px-2 py-2 min-h">
             <h3 class="font-weight-bold">{{ __('account.infos') }}</h3>
             <form action="" method="POST" class="mx-2 py-2">
                 @csrf
@@ -45,7 +45,7 @@ WatchMe - {{ __('main.account') }}
         </div>
     </div>
     <div class="col-12 col-lg-4 px-3">
-        <div class="bg-beige shadow mb-3 px-2 py-2">
+        <div class="bg-beige shadow mb-3 px-2 py-2 min-h">
             <h3 class="font-weight-bold">{{ __('account.subscription') }}</h3>
             @if (Auth::user()->subscription_id == null)
             <p>{{ __('account.nosub') }}</p>
@@ -57,7 +57,7 @@ WatchMe - {{ __('main.account') }}
         </div>
     </div>
     <div class="col-12 col-lg-4 px-3">
-        <div class="bg-beige shadow mb-3 px-2 py-2">
+        <div class="bg-beige shadow mb-3 px-2 py-2 min-h">
             <h3 class="font-weight-bold">{{ __('account.options') }}</h3>
             <form id="parental-form" action="" method="POST" class="mx-2">
                 @csrf
