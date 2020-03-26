@@ -19,7 +19,7 @@ use App\Mail\Contact;
 Auth::routes();
 
 // Public connected
-Route::get('/', 'HomeController@index')->name('index');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/catalogue', 'HomeController@catalogue')->name('catalogue');
 Route::get('/favoris', 'HomeController@favoris')->name('favoris');
 Route::get('/mentions', 'HomeController@mentions')->name('mentions');

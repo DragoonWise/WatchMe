@@ -15,7 +15,7 @@ class CreateLogActivitiesTable extends Migration
     {
         Schema::create('log_activities', function (Blueprint $table) {
             $table->id();
-            $table->integer('ip')->unsigned();
+            $table->string('ip', 255);
             $table->timestamps();
             $table->foreignId('user_id')->constrained();
         });

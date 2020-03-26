@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateAccount;
 use Auth;
 use Request;
 use Hash;
+use DB;
 
 class AccountController extends Controller
 {
@@ -52,6 +53,8 @@ class AccountController extends Controller
 
     public function log()
     {
-        return view('log');
+        $user = Auth::user();
+        $userlogs = DB::table('log_activities')->select('ip', 'created_at')->where('user_id', $user->id)->orderBy('id', 'desc')->get();
+        return view('log')->with('userlogs', $userlogs);
     }
 }

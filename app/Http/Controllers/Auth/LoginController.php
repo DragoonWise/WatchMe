@@ -47,7 +47,7 @@ class LoginController extends Controller
     protected function authenticated(\Illuminate\Http\Request $request, $user)
     {
 
-        return LogActivity::create([
+        LogActivity::create([
             'ip' => $request->getClientIp(),
             'user_id' => $user->id
         ]);
