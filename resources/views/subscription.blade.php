@@ -12,21 +12,16 @@ WatchMe - {{ __('account.subscription') }}
             {{-- Formula block --}}
             <div id="formula_block" class="col-12 col-md-6 px-5 pb-5">
                 <h2 class="text-center font-weight-bold">Forfait</h2>
+
+                @foreach($formulas as $formula)
                 <div class="custom-control custom-radio">
-                    <input type="radio" id="formula1" name="formula" class="custom-control-input" checked>
-                    <label class="custom-control-label" for="formula1"><span class="font-weight-bold">10€ /
-                            1 mois</span></label>
+                    <input type="radio" id="formula{{$formula->id}}" name="formula" class="custom-control-input">
+                    <label class="custom-control-label" for="formula{{$formula->id}}"><span
+                            class="font-weight-bold">{{$formula->formula}}</span> - {{$formula->amount}} €</label>
+                    <p>{{$formula->description}}</p>
                 </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" id="formula2" name="formula" class="custom-control-input">
-                    <label class="custom-control-label" for="formula2"><span class="font-weight-bold">27€ / 3
-                            mois</span> ( soit 9€ / mois )</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" id="formula3" name="formula" class="custom-control-input">
-                    <label class="custom-control-label" for="formula3"><span class="font-weight-bold">46€ / 6
-                            mois</span> ( soit 8€ / mois )</label>
-                </div><br>
+                @endforeach
+                <br>
                 <p>Regardez WatchMe sur 1 écran en définition standard. Tous les forfaits offrent un accès
                     illimité aux films et aux séries TV, sur tous vos appareils. La disponibilité de la HD (720p), de la
                     Full HD (1080p), de l'Ultra HD (4K) et de la HDR dépend de votre connexion Internet et des capacités

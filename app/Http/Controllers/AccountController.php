@@ -48,7 +48,8 @@ class AccountController extends Controller
 
     public function subscription()
     {
-        return view('subscription');
+        $formulas = DB::table('subscriptions')->select('id', 'formula', 'description', 'plan_id', 'amount')->get();
+        return view('subscription')->with('formulas', $formulas);
     }
 
     public function log()
