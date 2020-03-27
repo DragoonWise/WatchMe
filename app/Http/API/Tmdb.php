@@ -16,7 +16,7 @@ class Tmdb
 
 	public function all(int $page = 1)
 	{
-		return $this->endpointRequest('/3/discover/movie'.$this->startrequest.'&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page='.$page);
+		return $this->endpointRequest('/3/discover/movie'.$this->startrequest.'&language=fr-FR&region=Fr&sort_by=popularity.desc&include_adult=false&include_video=false&page='.$page);
 	}
 
 	public function findById($id)
@@ -26,7 +26,7 @@ class Tmdb
 
     public function findByName($name,int $page = 1)
 	{
-		return $this->endpointRequest("/3/search/movie{$this->startrequest}&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=$page&query=".htmlspecialchars($name));
+		return $this->endpointRequest("/3/search/movie{$this->startrequest}&language=fr-FR&region=Fr&sort_by=popularity.desc&include_adult=false&include_video=false&page=$page&query=".htmlspecialchars($name));
     }
 
     // https://api.themoviedb.org/3/movie/popular?api_key=07781e9d3ce562b41e44f16649ef204f&language=fr-FR&page=1
@@ -35,7 +35,13 @@ class Tmdb
 		return $this->endpointRequest('/3/movie/popular'.$this->startrequest.'&language=fr-FR&page='.$page);
 	}
 
-	public function endpointRequest($url)
+    // https://api.themoviedb.org/3/discover/movie?api_key=07781e9d3ce562b41e44f16649ef204f&language=fr-FR&sort_by=release_date.asc&include_adult=false&include_video=true&page=1&primary_release_year=2020
+	public function getNews(int $page = 1)
+	{
+		return $this->endpointRequest('/3/discover/movie'.$this->startrequest.'&language=fr-FR&region=Fr&sort_by=release_date.desc&include_video=true&with_release_type=3%7C2&vote_count.gte=1&primary_release_year=2020&page='.$page);
+	}
+
+    public function endpointRequest($url)
 	{
 		try {
             $response = $this->client->request('GET', $url);

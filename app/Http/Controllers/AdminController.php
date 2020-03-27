@@ -18,7 +18,7 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-        $movies = Movie::getPopulars();
+        $movies = Movie::getNews();
         // dd($movie);
         return view('admin/dashboard',['movies'=>$movies, 'imgHelper' => new ImageHelper()]);
     }

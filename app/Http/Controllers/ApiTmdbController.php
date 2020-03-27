@@ -61,4 +61,16 @@ class ApiTmdbController extends Controller
         $tmdb = $this->tmdb->getPopulars($page);
         return json_encode($tmdb);
     }
+
+        /**
+     * Display a listing of the resource.
+     *
+     * @param  int|null  $page
+     * @return \Illuminate\Http\Response
+     */
+    public function news(?int $page = 1)
+    {
+        $tmdb = $this->tmdb->getNews($page);
+        return json_encode($tmdb);
+    }
 }

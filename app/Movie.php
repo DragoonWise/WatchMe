@@ -82,6 +82,22 @@ class Movie extends Model
         // dd($movies);
         $return = [];
         foreach ($movies as $movie) {
+            if ($movie['poster_path'])
+            $return[] = self::findByTmdbId($movie['id']);
+        }
+        return $return;
+    }
+
+    public static function getNews(int $page = 1)
+    {
+        $res = Http::get('http://localhost/WatchMe/public/' . 'api/movies/news/' . $page);
+        $results = $res->json();
+        $movies = $results['results'];
+        // dd($movies);
+        $return = [];
+        foreach ($movies as $movie) {
+            // dd(date_create($movie['release_date']));
+            if ($movie['poster_path'] && date_create($movie['release_date'])<=now())
             $return[] = self::findByTmdbId($movie['id']);
         }
         return $return;
