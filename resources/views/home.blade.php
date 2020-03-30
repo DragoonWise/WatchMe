@@ -17,10 +17,18 @@ WatchMe
             @if($count == 0)
             <div class="carousel-item row no-gutters {{ ($countactive == 1)?"active":"" }}">
                 @endif
-                <div class="col-2 float-left">
+                <div id="movie{{ $new->id }}" class="col-2 float-left">
                     <img class="img-fluid" src="{{ $images->getImageURL($new->urlMiniature) }}"
                         alt="image {{ $new->title }}" title="{{ $new->title }}">
-                    <div class="carousel-caption d-none d-md-block">
+                    <form id="fav-add" action="{{ route('favorite') }}" method="POST">
+                        @csrf
+                        <input name="movie_id" type="hidden" value="{{ $new->id }}">
+                        <input name="type" type="hidden" value="favorite">
+                        <button id="fav-btn" type="submit" class="btn favicon-unchecked bg-none">
+                            <i class="{{ isset($favorite[$new->id])?'fas':'far' }} fa-star fs-20"></i>
+                        </button>
+                    </form>
+                    <div class="carousel-caption d-none d-md-block pb-0">
                         <h5 class="semi-grey-bg">{{ $new->title }}</h5>
                     </div>
                 </div>
@@ -55,7 +63,7 @@ WatchMe
             @if($count == 0)
             <div class="carousel-item row no-gutters {{ ($countactive == 1)?"active":"" }}">
                 @endif
-                <div class="col-2 float-left">
+                <div id="movie{{ $top->id }}" class="col-2 float-left">
                     <img class="img-fluid" src="{{ $images->getImageURL($top->urlMiniature) }}"
                         alt="image {{ $top->title }}" title="{{ $top->title }}">
                     <div class="carousel-caption d-none d-md-block">
@@ -83,34 +91,12 @@ WatchMe
     </div>
 </div>
 </div>
-<h4 class="pl-5 beige font-weight-bold mt-3">{{ __('main.advice') }}</h4>
+{{-- <h4 class="pl-5 beige font-weight-bold mt-3">{{ __('main.advice') }}</h4>
 <div class="text-center my-3">
     <div id="adviceCarousel" class="carousel slide w-100">
         <div class="carousel-inner w-100" role="listbox">
             <div class="carousel-item row no-gutters active">
-                <div class="col-2 float-left"><img class="img-fluid" src="http://placehold.it/350x280/222/fff?text=1">
-                </div>
-                <div class="col-2 float-left"><img class="img-fluid" src="http://placehold.it/350x280/444?text=2"></div>
-                <div class="col-2 float-left"><img class="img-fluid" src="http://placehold.it/350x280/888?text=3"></div>
-                <div class="col-2 float-left"><img class="img-fluid" src="http://placehold.it/350x280/111/fff?text=4">
-                </div>
-                <div class="col-2 float-left"><img class="img-fluid" src="http://placehold.it/350x280/111/fff?text=5">
-                </div>
-                <div class="col-2 float-left"><img class="img-fluid" src="http://placehold.it/350x280/111/fff?text=6">
-                </div>
-            </div>
-            <div class="carousel-item row no-gutters">
-                <div class="col-2 float-left"><img class="img-fluid" src="http://placehold.it/350x280?text=7">
-                </div>
-                <div class="col-2 float-left"><img class="img-fluid" src="http://placehold.it/350x280/555?text=8"></div>
-                <div class="col-2 float-left"><img class="img-fluid" src="http://placehold.it/350x280/333/fff?text=9">
-                </div>
-                <div class="col-2 float-left"><img class="img-fluid" src="http://placehold.it/350x280/bbb?text=10">
-                </div>
-                <div class="col-2 float-left"><img class="img-fluid" src="http://placehold.it/350x280/bbb?text=11">
-                </div>
-                <div class="col-2 float-left"><img class="img-fluid" src="http://placehold.it/350x280/bbb?text=12">
-                </div>
+
             </div>
         </div>
         <a class="carousel-control-prev justify-content-start pl-2 slide-icon" href="#adviceCarousel" role="button"
@@ -124,7 +110,7 @@ WatchMe
             <span class="sr-only">{{ __('main.next') }}</span>
         </a>
     </div>
-</div>
+</div> --}}
 
 
 @endsection

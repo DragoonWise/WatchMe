@@ -17,7 +17,7 @@ class CreateLinkUserMoviesTable extends Migration
             $table->id();
             $table->foreignId('movie_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->string('Type',50);
+            $table->string('Type', 50);
             $table->integer('Ratings');
             $table->timestamps();
         });

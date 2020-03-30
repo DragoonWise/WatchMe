@@ -83,7 +83,7 @@ class Movie extends Model
         $return = [];
         foreach ($movies as $movie) {
             if ($movie['poster_path'])
-            $return[] = self::findByTmdbId($movie['id']);
+                $return[] = self::findByTmdbId($movie['id']);
         }
         return $return;
     }
@@ -97,8 +97,8 @@ class Movie extends Model
         $return = [];
         foreach ($movies as $movie) {
             // dd(date_create($movie['release_date']));
-            if ($movie['poster_path'] && date_create($movie['release_date'])<=now())
-            $return[] = self::findByTmdbId($movie['id']);
+            if ($movie['poster_path'] && date_create($movie['release_date']) <= now())
+                $return[] = self::findByTmdbId($movie['id']);
         }
         return $return;
     }
