@@ -56,3 +56,4 @@ Route::get('/api/movie/{id}', 'ApiTmdbController@movieById');
 Route::get('/admin', 'AdminController@dashboard');
 Route::get('/admin/users', 'AdminController@users');
 Route::get('/admin/user/{id}', 'AdminController@user');
+Route::post('/admin/user/{id}', 'AdminController@userupdate');

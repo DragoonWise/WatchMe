@@ -2,7 +2,7 @@
 
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'WatchMe Admin')
 
 @section('content_header')
     <h1>Dashboard</h1>
