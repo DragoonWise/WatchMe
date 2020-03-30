@@ -7,6 +7,7 @@ WatchMe
 @endsection
 @section('content')
 
+{{ var_dump($tops) }}
 
 <h4 class="pl-5 beige font-weight-bold">{{ __('main.news') }}</h4>
 <div class="text-center my-3">

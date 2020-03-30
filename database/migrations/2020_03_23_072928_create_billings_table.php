@@ -17,6 +17,8 @@ class CreateBillingsTable extends Migration
             $table->id();
             $table->string('paiement_type', 255);
             $table->string('ticket_tumber', 255);
+            $table->string('currency_code', 255);
+            $table->string('payment_status', 255);
             $table->float('amount_ht');
             $table->timestamps();
             $table->softDeletes();

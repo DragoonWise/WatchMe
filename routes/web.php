@@ -36,6 +36,15 @@ Route::post('/account', 'AccountController@update');
 Route::get('/subscription', 'AccountController@subscription')->name('subscription');
 Route::get('/log', 'AccountController@log')->name('log');
 
+// Test Paypal
+Route::get('payment-status', array('as' => 'payment.status', 'uses' => 'PaymentController@paymentInfo'));
+Route::get('payment', array('as' => 'payment', 'uses' => 'PaymentController@payment'));
+Route::get('payment-cancel', function () {
+    return 'Payment has been canceled';
+});
+
+
+
 // API
 Route::get('/api/movies/populars/{page?}', 'ApiTmdbController@populars');
 Route::get('/api/movies/news/{page?}', 'ApiTmdbController@news');
