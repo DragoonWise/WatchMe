@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Movie;
+use App\Http\API\ImageHelper;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $tops = Movie::getPopulars();
-        return view('home')->with('tops', $tops);
+        $news = Movie::getNews();
+        $images = new ImageHelper();
+        return view('home')->with('tops', $tops)->with('news', $news)->with('images', $images);
     }
 
     public function catalogue()

@@ -18,4 +18,6 @@ $(function () {
         $("#credit_block").hide();
     })
 
+
+
 });
