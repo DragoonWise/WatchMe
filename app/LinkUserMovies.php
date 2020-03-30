@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class LinkUserMovie extends Model
 {
     protected $fillable = [
-        'movie_id', 'user_id', 'type', 'ratings'
+        'movie_id', 'user_id', 'Type', 'ratings'
     ];
 }

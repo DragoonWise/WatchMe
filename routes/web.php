@@ -20,7 +20,7 @@ Auth::routes();
 
 // Public connected
 Route::get('/', 'HomeController@index')->name('home');
-Route::post('/', 'FavoriteController')->name('favorite');
+Route::post('/', 'FavoriteController@add')->name('favorite');
 Route::get('/catalogue', 'HomeController@catalogue')->name('catalogue');
 Route::get('/favoris', 'HomeController@favoris')->name('favoris');
 Route::get('/mentions', 'HomeController@mentions')->name('mentions');

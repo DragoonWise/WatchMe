@@ -23,7 +23,6 @@ WatchMe
                     <form id="fav-add" action="{{ route('favorite') }}" method="POST">
                         @csrf
                         <input name="movie_id" type="hidden" value="{{ $new->id }}">
-                        <input name="type" type="hidden" value="favorite">
                         <button id="fav-btn" type="submit" class="btn favicon-unchecked bg-none">
                             <i class="{{ isset($favorite[$new->id])?'fas':'far' }} fa-star fs-20"></i>
                         </button>

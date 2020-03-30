@@ -8,14 +8,14 @@ use Auth;
 
 class FavoriteController extends Controller
 {
-    public function __invoke(Request $request)
+    public function add(Request $request)
     {
         $user = Auth::user();
         if ($request->ajax()) {
             LinkUserMovie::create([
-                'Type' => $request['type'],
                 'movie_id' => $request['movie_id'],
                 'user_id' => $user->id,
+                'Type' => 'favorite',
                 'ratings' => '1'
             ]);
         }
