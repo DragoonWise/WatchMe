@@ -21,13 +21,20 @@ $(function () {
     })
 
     // Favorite buttons
-    $("#fav-btn").on("click", function (e) {
-        e.preventDefault();
+    $(".fav-btn").on("click", function (e) {
         $.ajax({
-            method: $("#fav-add").attr('method'),
-            url: $("#fav-add").attr('action'),
-            data: $("#fav-add").serialize()
-        })
+            method: 'post',
+            url: $(this).parent().attr('action'),
+            data: $(this).parent().serialize(),
+            success: function () {
+                if ($(this).hasClass('fas')) {
+                    $(this).removeClass('fas').addClass('far')
+                } else {
+                    $(this).removeClass('far').addClass('fas')
+                }
+            }
+        });
+        e.preventDefault();
     })
 
 });

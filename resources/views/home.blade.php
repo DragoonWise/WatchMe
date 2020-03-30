@@ -20,12 +20,12 @@ WatchMe
                 <div id="movie{{ $new->id }}" class="col-2 float-left">
                     <img class="img-fluid" src="{{ $images->getImageURL($new->urlMiniature) }}"
                         alt="image {{ $new->title }}" title="{{ $new->title }}">
-                    <form id="fav-add" action="{{ route('favorite') }}" method="POST">
+                    <form class="fav-add" action="{{ route('favorite') }}" method="POST">
                         @csrf
                         <input name="movie_id" type="hidden" value="{{ $new->id }}">
-                        <button id="fav-btn" type="submit" class="btn favicon-unchecked bg-none">
+                        <div class="fav-btn btn favicon-unchecked bg-none">
                             <i class="{{ isset($favorite[$new->id])?'fas':'far' }} fa-star fs-20"></i>
-                        </button>
+                        </div>
                     </form>
                     <div class="carousel-caption d-none d-md-block pb-0">
                         <h5 class="semi-grey-bg">{{ $new->title }}</h5>
