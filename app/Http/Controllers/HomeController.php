@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Movie;
 use App\Http\API\ImageHelper;
+use DB;
+use App\LinkUserMovie;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -28,12 +31,24 @@ class HomeController extends Controller
         $tops = Movie::getPopulars();
         $news = Movie::getNews();
         $images = new ImageHelper();
-        return view('home')->with('tops', $tops)->with('news', $news)->with('images', $images);
+        $user = Auth::user();
+        $favorites = LinKUserMovie::select('movie_id')->where('user_id', $user->id)->where('type', 'favorite')->get();
+        foreach ($favorites as $value) {
+            $fav[$value['movie_id']] = $value['movie_id'];
+        }
+        if (empty($fav)) {
+            $fav[0] = 0;
+        }
+
+
+        return view('home')->with('tops', $tops)->with('news', $news)->with('favorite', $fav)->with('images', $images);
     }
 
     public function catalogue()
     {
-        return view('catalogue');
+        $all = DB::table('movies')->select('*')->get();
+        $images = new ImageHelper();
+        return view('catalogue')->with('all', $all)->with('images', $images);
     }
 
     public function favoris()

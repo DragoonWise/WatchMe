@@ -48,12 +48,23 @@
 }
 
 .semi-grey-bg {
-    background-color: #3636367a;
+    background-color: #363636dc;
 }
 
 // Display
 .hidden {
     display: none;
+}
+
+.bg-none {
+    background-color: transparent;
+}
+
+.favicon-unchecked {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    color: gold;
 }
 
 /* TAILLE TELEPHONE */
