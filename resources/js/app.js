@@ -28,9 +28,11 @@ $(function () {
             data: $(this).parent().serialize(),
             success: function () {
                 if ($(this).hasClass('fas')) {
-                    $(this).removeClass('fas').addClass('far')
+                    $(this).removeClass('fas');
+                    $(this).addClass('far');
                 } else {
-                    $(this).removeClass('far').addClass('fas')
+                    $(this).removeClass('far');
+                    $(this).addClass('fas');
                 }
             }
         });
