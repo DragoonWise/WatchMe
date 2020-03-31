@@ -143,6 +143,7 @@ class Movie extends Model
         return Movie::Join('link_user_movies', 'movies.id', '=', 'link_user_movies.movie_id')
             ->where('link_user_movies.user_id', Auth::user()->id)
             ->where('link_user_movies.Type', 'favorite')
+            ->select('Movies.*')
             ->get();
     }
 }
