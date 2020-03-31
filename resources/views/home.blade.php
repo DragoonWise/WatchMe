@@ -23,13 +23,13 @@ WatchMe
                     <form class="fav-add" action="{{ route('favorite') }}" method="POST">
                         @csrf
                         <input name="movie_id" type="hidden" value="{{ $new->id }}">
-                        <div class="fav-btn btn favicon-unchecked bg-none">
-                            @if($new->isFavorite())
-                            <i class="fas fa-star fs-20"></i>
-                            @else
-                            <i class="far fa-star fs-20"></i>
-                            @endif
-                        </div>
+
+                        @if($new->isFavorite())
+                        <div class="fav-btn btn favicon bg-none"><i class="fas fa-star fs-20"></i></div>
+                        @else
+                        <div class="fav-btn btn favicon bg-none"><i class="far fa-star fs-20"></i></div>
+                        @endif
+
                     </form>
                     <div class="carousel-caption d-none d-md-block pb-0">
                         <h5 class="semi-grey-bg">{{ $new->title }}</h5>

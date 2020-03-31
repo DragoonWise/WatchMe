@@ -27,9 +27,9 @@ $(function () {
             url: $(this).parent().attr('action'),
             data: $(this).parent().serialize(),
             success: function () {
-                if ($(this).hasClass('fas')) {
+                if ($(this).hasClass('fav')) {
                     $(this).html("<i class = 'far fa-star fs-20'> </i>");
-                } else {
+                } else if ($(this).hasClass('notfav')) {
                     $(this).html("<i class = 'fas fa-star fs-20'> </i>");
                 }
             }
