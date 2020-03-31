@@ -17,6 +17,6 @@ class FavoriteController extends Controller
         if ($request->ajax()) {
             $movie->setFavorite(!$movie->isFavorite());
         }
-        return response()->json();
+        return json_encode(['movie_id'=>$request['movie_id']]);
     }
 }

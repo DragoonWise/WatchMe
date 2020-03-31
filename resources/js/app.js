@@ -26,11 +26,15 @@ $(function () {
             method: 'post',
             url: $(this).parent().attr('action'),
             data: $(this).parent().serialize(),
-            success: function () {
-                if ($(this).hasClass('fav')) {
-                    $(this).html("<i class = 'far fa-star fs-20'> </i>");
-                } else if ($(this).hasClass('notfav')) {
-                    $(this).html("<i class = 'fas fa-star fs-20'> </i>");
+            success: function (data) {
+                data = JSON.parse(data);
+                btn = $(".fav-btn-"+data['movie_id']);
+                if (btn.hasClass('fav')) {
+                    btn.removeClass('fav');
+                    btn.html("<i class = 'far fa-star fs-20'> </i>");
+                } else {
+                    btn.addClass('fav');
+                    btn.html("<i class = 'fas fa-star fs-20'> </i>");
                 }
             }
         });

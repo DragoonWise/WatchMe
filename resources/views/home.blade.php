@@ -25,9 +25,9 @@ WatchMe
                         <input name="movie_id" type="hidden" value="{{ $new->id }}">
 
                         @if($new->isFavorite())
-                        <div class="fav-btn btn favicon bg-none"><i class="fas fa-star fs-20"></i></div>
+                        <div class="fav-btn fav-btn-{{ $new->id }} btn favicon bg-none fav"><i class="fas fa-star fs-20"></i></div>
                         @else
-                        <div class="fav-btn btn favicon bg-none"><i class="far fa-star fs-20"></i></div>
+                        <div class="fav-btn fav-btn-{{ $new->id }} btn favicon bg-none"><i class="far fa-star fs-20"></i></div>
                         @endif
 
                     </form>
