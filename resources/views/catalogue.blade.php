@@ -6,9 +6,9 @@
 WatchMe - {{ __('main.catalog') }}
 @endsection
 @section('content')
-<div class="row">
+<div class="row mx-md-2">
     @foreach($all as $movie)
-    <div id="movie{{ $movie->id }}" class="col-2 float-left">
+    <div id="movie{{ $movie->id }}" class="col-lg-2 col-md-4 col-12 float-left mb-4">
         <img class="img-fluid" src="{{ $images->getImageURL($movie->urlMiniature) }}" alt="image {{ $movie->title }}"
             title="{{ $movie->title }}">
         <form class="fav-add" action="{{ route('favorite') }}" method="POST">

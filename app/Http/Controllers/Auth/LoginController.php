@@ -52,4 +52,11 @@ class LoginController extends Controller
             'user_id' => $user->id
         ]);
     }
+
+    public function showLoginForm()
+    {
+        $news = Movie::getNews();
+        $images = new ImageHelper();
+        return view('auth.login')->with('news', $news)->with('images', $images);
+    }
 }
