@@ -14,6 +14,7 @@ class FavoriteController extends Controller
         $user = Auth::user();
         $favorites = LinKUserMovie::select('movie_id')
             ->where('user_id', $user->id)
+            ->where('movie_id', $request['movie_id'])
             ->where('type', 'favorite')
             ->count();
 
