@@ -41,6 +41,30 @@ class ApiTmdbController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function movieDetails($id)
+    {
+        $tmdb = $this->tmdb->getDetails($id);
+        return json_encode($tmdb);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function movieVideos($id)
+    {
+        $tmdb = $this->tmdb->getVideos($id);
+        return json_encode($tmdb);
+    }
+
+    /**
+     * Display the specified resource.
+     *
      * @param  string  $name
      * @return \Illuminate\Http\Response
      */

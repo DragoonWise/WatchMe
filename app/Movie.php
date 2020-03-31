@@ -126,4 +126,14 @@ class Movie extends Model
             $favorite->save();
         }
     }
+
+    public function getDetails()
+    {
+        return MovieDetails::ByImdb($this->reference);
+    }
+
+    public function getVideos()
+    {
+        return MovieVideos::ByImdb($this->reference);
+    }
 }

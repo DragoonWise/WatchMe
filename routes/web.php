@@ -52,6 +52,8 @@ Route::get('/api/movies/news/{page?}', 'ApiTmdbController@news');
 Route::get('/api/movies/{page?}', 'ApiTmdbController@movies');
 Route::get('/api/movie/name/{name}/{page?}', 'ApiTmdbController@movieByName');
 Route::get('/api/movie/{id}', 'ApiTmdbController@movieById');
+Route::get('/api/movie/{id}/details', 'ApiTmdbController@movieDetails');
+Route::get('/api/movie/{id}/videos', 'ApiTmdbController@movieVideos');
 
 // Admin
 Route::get('/admin', 'AdminController@dashboard');
