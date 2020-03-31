@@ -8,4 +8,6 @@ return [
     'modify' => 'Modifier',
     'delete' => 'Supprimer',
     'reactivate' => 'Réactiver',
+    'resetpassword' => 'Réinitialiser le mot de passe',
+    'usersubscription' => 'Abonnement Utilisateur',
 ];

@@ -48,21 +48,19 @@ class AdminController extends Controller
         return view('admin/user', ['user' => $user]);
     }
 
-public function userupdate(AdminUpdateAccount $request)
+    public function userupdate(AdminUpdateAccount $request)
     {
         $user = User::find($request->input('id'));
         if ($request->has("update")) {
             $user->login = $request->input('login');
             $user->email = $request->input('email');
-        }
-        if ($request->has("parental_control_hidden")) {
             if ($request->input('parental_control') == null) {
                 $user->parental_control = 0;
             } else {
                 $user->parental_control = 1;
             }
+            $user->save();
         }
-        $user->save();
         return back();
     }
 }

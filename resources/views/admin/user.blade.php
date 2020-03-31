@@ -11,20 +11,38 @@
 <form action="" method="POST" class="mx-2 py-2">
     @csrf
     <input type="hidden" name="id" value="{{ $user->id }}">
-    <label for="login" class="font-weight-bold fs-20">{{ __('main.login') }}</label>
-    <input type="text" name="login" id="login"
-        class="form-control shadow-sm rounded @error('login') is-invalid @enderror" value="{{ $user->login }}">
-    @error('login')
-    <div class="invalid-feedback ">{{ $message }}</div>
-    @enderror
-    <label for="email" class="mt-4 font-weight-bold fs-20">{{ __('main.email') }}</label>
-    <input type="email" name="email" id="email"
-        class="form-control  shadow-sm rounded @error('email') is-invalid @enderror" value="{{ $user->email }}">
-    @error('email')
-    <div class="invalid-feedback ">{{ $message }}</div>
-    @enderror
+    <div class="form-group">
+        <label for="login" class="font-weight-bold fs-20">{{ __('main.login') }}</label>
+        <input type="text" name="login" id="login"
+            class="form-control shadow-sm rounded @error('login') is-invalid @enderror" value="{{ $user->login }}">
+        @error('login')
+        <div class="invalid-feedback ">{{ $message }}</div>
+        @enderror
+    </div>
+    <div class="form-group">
+        <label for="email" class="mt-4 font-weight-bold fs-20">{{ __('main.email') }}</label>
+        <input type="email" name="email" id="email"
+            class="form-control  shadow-sm rounded @error('email') is-invalid @enderror" value="{{ $user->email }}">
+        @error('email')
+        <div class="invalid-feedback ">{{ $message }}</div>
+        @enderror
+    </div>
+    <div class="form-check">
+        <input type="checkbox" name="parental_control" id="parental_control" class="form-check-input mt-2"
+            {{ $user->parental_control == 1 ? 'checked':'' }}
+            >
+        <label for="parental_control" class="font-weight-bold fs-20">{{ __('account.parental') }}</label>
+        <p>{{ __('account.parental_description') }}</p>
+    </div>
+    <div class="form-group">
+        <h3 class="font-weight-bold">{{ __('admin.usersubscription') }}</h3>
+        @if ($user->subscription_id == null)
+        <p>{{ __('account.nosub') }}</p>
+        @endif
+
+    </div>
     <button type="submit" name="resetpassword"
-        class="btn bg-dark beige font-weight-bold mt-4 fs-20 shadow-sm">{{ __('account.resetpassword') }}</button>
+        class="btn bg-dark beige font-weight-bold mt-4 fs-20 shadow-sm">{{ __('admin.resetpassword') }}</button>
     <button type="submit" name="update"
         class="btn bg-dark beige font-weight-bold mt-4 fs-20 shadow-sm">{{ __('account.update') }}</button>
 </form>

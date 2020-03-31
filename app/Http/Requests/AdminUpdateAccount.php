@@ -30,7 +30,6 @@ class AdminUpdateAccount extends FormRequest
         return [
             'login' => ['string', 'max:255'],
             'email' => ['string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'password' => ['exclude_if:has_password,false|confirmed|string|min:8'],
         ];
     }
 }
