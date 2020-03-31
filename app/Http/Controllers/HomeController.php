@@ -49,6 +49,17 @@ class HomeController extends Controller
         return view('favoris')->with('favorites', $favorites)->with('images', $images);
     }
 
+    public function movie($id)
+    {
+
+
+        $movie = Movie::find($id);
+        dd($movie);
+        $details = $movie->getDetails();
+        $videos = $movie->getVideos();
+        return view('movie')->with('details', $details)->with('videos', $videos);
+    }
+
     public function mentions()
     {
         return view('mentions');
