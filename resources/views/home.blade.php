@@ -23,11 +23,12 @@ WatchMe
                     <form class="fav-add" action="{{ route('favorite') }}" method="POST">
                         @csrf
                         <input name="movie_id" type="hidden" value="{{ $new->id }}">
-
                         @if($new->isFavorite())
-                        <div class="fav-btn fav-btn-{{ $new->id }} btn favicon bg-none fav"><i class="fas fa-star fs-20"></i></div>
+                        <div class="fav-btn fav-btn-{{ $new->id }} btn favicon bg-none fav"><i
+                                class="fas fa-star fs-20"></i></div>
                         @else
-                        <div class="fav-btn fav-btn-{{ $new->id }} btn favicon bg-none"><i class="far fa-star fs-20"></i></div>
+                        <div class="fav-btn fav-btn-{{ $new->id }} btn favicon bg-none"><i
+                                class="far fa-star fs-20"></i></div>
                         @endif
 
                     </form>
@@ -69,7 +70,19 @@ WatchMe
                 <div id="movie{{ $top->id }}" class="col-2 float-left">
                     <img class="img-fluid" src="{{ $images->getImageURL($top->urlMiniature) }}"
                         alt="image {{ $top->title }}" title="{{ $top->title }}">
-                    <div class="carousel-caption d-none d-md-block">
+                    <form class="fav-add" action="{{ route('favorite') }}" method="POST">
+                        @csrf
+                        <input name="movie_id" type="hidden" value="{{ $top->id }}">
+                        @if($top->isFavorite())
+                        <div class="fav-btn fav-btn-{{ $top->id }} btn favicon bg-none fav"><i
+                                class="fas fa-star fs-20"></i></div>
+                        @else
+                        <div class="fav-btn fav-btn-{{ $top->id }} btn favicon bg-none"><i
+                                class="far fa-star fs-20"></i></div>
+                        @endif
+
+                    </form>
+                    <div class="carousel-caption d-none d-md-block pb-0">
                         <h5 class="semi-grey-bg">{{ $top->title }}</h5>
                     </div>
                 </div>

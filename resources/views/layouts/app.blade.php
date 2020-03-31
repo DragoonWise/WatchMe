@@ -155,6 +155,7 @@
             </div>
         </div>
         @endguest
+    </div>
 </body>
 
 </html>
