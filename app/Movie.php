@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Symfony\Component\HttpFoundation\Request;
+use DB;
 
 class Movie extends Model
 {
@@ -125,5 +126,14 @@ class Movie extends Model
             $favorite->created_at = now();
             $favorite->save();
         }
+    }
+
+    public static function getFavorites()
+    {
+        return Movie::Join('link_user_movies', 'movies.id', '=', 'link_user_movies.movie_id')
+            ->select('movies.*', 'link_user_movies.*')
+            ->where('link_user_movies.user_id', Auth::user()->id)
+            ->where('link_user_movies.Type', 'favorite')
+            ->get();
     }
 }

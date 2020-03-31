@@ -44,7 +44,9 @@ class HomeController extends Controller
 
     public function favoris()
     {
-        return view('favoris');
+        $favorites = Movie::getFavorites();
+        $images = new ImageHelper();
+        return view('favoris')->with('favorites', $favorites)->with('images', $images);
     }
 
     public function mentions()
