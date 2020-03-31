@@ -5,6 +5,7 @@ namespace App;
 use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -101,5 +102,28 @@ class Movie extends Model
                 $return[] = self::findByTmdbId($movie['id']);
         }
         return $return;
+    }
+
+    public function isFavorite()
+    {
+        $favorite = LinkUserMovie::where('movie_id', $this->id)->where('user_id', Auth::user()->id)->where('type', 'favorite')->First();
+        return ($favorite != null);
+    }
+
+    public function setFavorite(bool $state)
+    {
+        $movie_id = $this->id;
+        $user_id = Auth::user()->id;
+        $favorite = LinkUserMovie::where('movie_id', $movie_id)->where('user_id', $user_id)->where('type', 'favorite')->First();
+        if (!$state && $favorite != null)
+            $favorite->remove();
+        if ($state && $favorite == null) {
+            $favorite = new LinkUserMovie();
+            $favorite->user_id = $user_id;
+            $favorite->movie_id = $movie_id;
+            $favorite->type = 'favorite';
+        }
+        if ($favorite)
+            $favorite->save();
     }
 }
