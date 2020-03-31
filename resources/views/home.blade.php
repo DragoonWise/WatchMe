@@ -24,7 +24,11 @@ WatchMe
                         @csrf
                         <input name="movie_id" type="hidden" value="{{ $new->id }}">
                         <div class="fav-btn btn favicon-unchecked bg-none">
-                            <i class="{{ isset($favorite[$new->id])?'fas':'far' }} fa-star fs-20"></i>
+                            @if(isset($favorite[$new->id]))
+                            <i class="fas fa-star fs-20"></i>
+                            @else
+                            <i class="far fa-star fs-20"></i>
+                            @endif
                         </div>
                     </form>
                     <div class="carousel-caption d-none d-md-block pb-0">

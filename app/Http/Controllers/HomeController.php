@@ -33,11 +33,9 @@ class HomeController extends Controller
         $images = new ImageHelper();
         $user = Auth::user();
         $favorites = LinKUserMovie::select('movie_id')->where('user_id', $user->id)->where('type', 'favorite')->get();
+        $fav[0] = 0;
         foreach ($favorites as $value) {
             $fav[$value['movie_id']] = $value['movie_id'];
-        }
-        if (empty($fav)) {
-            $fav[0] = 0;
         }
 
 
