@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\LinkUserMovie;
+use App\Movie;
 use Illuminate\Http\Request;
 use Auth;
 use DB;

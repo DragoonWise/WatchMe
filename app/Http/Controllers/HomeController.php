@@ -31,20 +31,13 @@ class HomeController extends Controller
         $tops = Movie::getPopulars();
         $news = Movie::getNews();
         $images = new ImageHelper();
-        $user = Auth::user();
-        $favorites = LinKUserMovie::select('movie_id')->where('user_id', $user->id)->where('type', 'favorite')->get();
-        $fav[0] = 0;
-        foreach ($favorites as $value) {
-            $fav[$value['movie_id']] = $value['movie_id'];
-        }
 
-
-        return view('home')->with('tops', $tops)->with('news', $news)->with('favorite', $fav)->with('images', $images);
+        return view('home')->with('tops', $tops)->with('news', $news)->with('images', $images);
     }
 
     public function catalogue()
     {
-        $all = DB::table('movies')->select('*')->get();
+        $all = Movie::all();
         $images = new ImageHelper();
         return view('catalogue')->with('all', $all)->with('images', $images);
     }

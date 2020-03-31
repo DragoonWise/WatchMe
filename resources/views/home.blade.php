@@ -24,7 +24,7 @@ WatchMe
                         @csrf
                         <input name="movie_id" type="hidden" value="{{ $new->id }}">
                         <div class="fav-btn btn favicon-unchecked bg-none">
-                            @if(isset($favorite[$new->id]))
+                            @if($new->isFavorite())
                             <i class="fas fa-star fs-20"></i>
                             @else
                             <i class="far fa-star fs-20"></i>

@@ -116,14 +116,14 @@ class Movie extends Model
         $user_id = Auth::user()->id;
         $favorite = LinkUserMovie::where('movie_id', $movie_id)->where('user_id', $user_id)->where('type', 'favorite')->First();
         if (!$state && $favorite != null)
-            $favorite->remove();
+            $favorite->delete();
         if ($state && $favorite == null) {
             $favorite = new LinkUserMovie();
             $favorite->user_id = $user_id;
             $favorite->movie_id = $movie_id;
             $favorite->type = 'favorite';
-        }
-        if ($favorite)
+            $favorite->created_at = now();
             $favorite->save();
+        }
     }
 }
