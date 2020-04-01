@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\API\ImageHelper;
 use App\Http\Requests\AdminUpdateAccount;
 use App\Movie;
+use App\Subscription;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -44,10 +45,13 @@ class AdminController extends Controller
     public function user($id)
     {
         $user = User::find($id);
-
-        return view('admin/user', ['user' => $user]);
+        $sub = Subscription::all();
+        return view('admin/user', ['user' => $user,'sub'=>$sub]);
     }
 
+    /**
+     * Method Post on User Detail
+     */
     public function userupdate(AdminUpdateAccount $request)
     {
         $user = User::find($request->input('id'));
@@ -59,6 +63,9 @@ class AdminController extends Controller
             } else {
                 $user->parental_control = 1;
             }
+            $sub = $request->input('formula');
+            $sub = $sub == "null" ? null : $sub;
+            $user->subscription_id = $sub;
             $user->save();
         }
         return back();
