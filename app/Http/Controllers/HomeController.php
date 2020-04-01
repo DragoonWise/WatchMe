@@ -51,8 +51,6 @@ class HomeController extends Controller
 
     public function movie($id)
     {
-
-
         $movie = Movie::find($id);
         $details = $movie->getDetails();
         $videos = $movie->getVideos();

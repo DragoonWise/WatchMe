@@ -2,17 +2,20 @@
 @section('description')
 {{ __('main.description') }}@endsection
 @section('title')
-WatchMe -
+WatchMe - {{ $details->title }}
 @endsection
 @section('content')
-{{ var_dump($details) }}
-@foreach ($videos as $video)
-<h1 class="beige font-weight-bold ml-5">{{$video->name}}</h1>
-<div class="bloc-video">
-    <iframe id="ytplayer" type="text/html" src="{{$video->url}}" allowfullscreen class="video shadow" frameborder="0" />
-
+<div class="mx-5">
+    <h1 class="beige font-weight-bold">{{ $details->title }}</h1>
+    <p class="beige"><span class="font-weight-bold">Genre(s) :</span>
+        @foreach ($details->genres as $genres)
+        {{ $genres['name'] }}
+        @endforeach</p>
+    <p class="beige"><span class="font-weight-bold">Synopsis : </span>{{ $details->overview }}</p>
 </div>
-
-@endforeach
+<div class="video-responsive">
+    <iframe src="{{$videos[0]->url}}" class="video shadow" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 @endsection
