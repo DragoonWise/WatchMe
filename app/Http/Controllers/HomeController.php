@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Search;
 use Illuminate\Http\Request;
 use App\Movie;
 use App\Http\API\ImageHelper;
-use DB;
-use App\LinkUserMovie;
-use Auth;
 
 class HomeController extends Controller
 {
@@ -55,6 +53,13 @@ class HomeController extends Controller
         $details = $movie->getDetails();
         $videos = $movie->getVideos();
         return view('movie')->with('details', $details)->with('videos', $videos);
+    }
+
+    public function search(Search $request)
+    {
+        $results = Movie::search($request->search);
+        $images = new ImageHelper();
+        return view('search')->with('results', $results)->with('images', $images);
     }
 
     public function mentions()

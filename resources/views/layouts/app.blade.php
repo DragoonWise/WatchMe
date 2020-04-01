@@ -92,7 +92,7 @@
             <form class="col-lg-6 col-md-4 offset-lg-1 order-1 order-md-0" action="/search" method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group shadow">
-                    <input type="text" class="form-control" name="q" placeholder="{{ __('main.search') }}"> <span
+                    <input type="text" class="form-control" name="search" placeholder="{{ __('main.search') }}"> <span
                         class="input-group-btn">
                         <button type="submit" class="btn bg-beige">
                             <i class="fas fa-search"></i>

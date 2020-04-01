@@ -21,6 +21,7 @@ Auth::routes();
 // Public connected
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/movie/{id}', ['uses' => 'HomeController@movie'])->name('movie.id');
+Route::post('/search', 'HomeController@search');
 Route::post('/', 'FavoriteController@add')->name('favorite');
 Route::get('/catalogue', 'HomeController@catalogue')->name('catalogue');
 Route::get('/favoris', 'HomeController@favoris')->name('favoris');

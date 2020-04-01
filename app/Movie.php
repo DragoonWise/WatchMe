@@ -146,4 +146,13 @@ class Movie extends Model
             ->select('Movies.*')
             ->get();
     }
+
+    public static function search($search)
+    {
+        $result = Movie::where('title', 'LIKE', '%' . $search . '%')->get();
+
+        if (count($result) > 0) {
+            return $result;
+        }
+    }
 }
