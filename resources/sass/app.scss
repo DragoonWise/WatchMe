@@ -33,6 +33,21 @@
     min-height: 540px;
 }
 
+.bloc-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 1%;
+    width: 98%;
+    height: 74%;
+}
+
 // Color
 .bg-beige {
     background-color: beige;
@@ -69,13 +84,21 @@
 
 /* TAILLE TELEPHONE */
 
-@media (max-width: 575.98px) {}
+@media (max-width: 575.98px) {
+    .video {
+        height: 100%;
+    }
+}
 
 /* TAILLE IPAD */
 
 @media (min-width: 576px) and (max-width: 767px) {
     .responsive-input {
         width: 80%;
+    }
+
+    .video {
+        height: 100%;
     }
 }
 
@@ -84,6 +107,10 @@
 @media (min-width: 768px) and (max-width: 991px) {
     .responsive-input {
         width: 75%;
+    }
+
+    .video {
+        height: 100%;
     }
 }
 

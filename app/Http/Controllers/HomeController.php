@@ -54,7 +54,6 @@ class HomeController extends Controller
 
 
         $movie = Movie::find($id);
-        dd($movie);
         $details = $movie->getDetails();
         $videos = $movie->getVideos();
         return view('movie')->with('details', $details)->with('videos', $videos);

@@ -18,8 +18,9 @@ WatchMe
             <div class="carousel-item row no-gutters {{ ($countactive == 1)?"active":"" }}">
                 @endif
                 <div id="movie{{ $new->id }}" class="col-2 float-left">
-                    <img class="img-fluid" src="{{ $images->getImageURL($new->urlMiniature) }}"
-                        alt="image {{ $new->title }}" title="{{ $new->title }}">
+                    <a href="{{ route('movie.id', ['id'=>$new->id]) }}"><img class="img-fluid"
+                            src="{{ $images->getImageURL($new->urlMiniature) }}" alt="image {{ $new->title }}"
+                            title="{{ $new->title }}"></a>
                     <form class="fav-add" action="{{ route('favorite') }}" method="POST">
                         @csrf
                         <input name="movie_id" type="hidden" value="{{ $new->id }}">
@@ -68,8 +69,9 @@ WatchMe
             <div class="carousel-item row no-gutters {{ ($countactive == 1)?"active":"" }}">
                 @endif
                 <div id="movie{{ $top->id }}" class="col-2 float-left">
-                    <img class="img-fluid" src="{{ $images->getImageURL($top->urlMiniature) }}"
-                        alt="image {{ $top->title }}" title="{{ $top->title }}">
+                    <a href="{{ route('movie.id', ['id'=>$top->id]) }}"><img class="img-fluid"
+                            src="{{ $images->getImageURL($top->urlMiniature) }}" alt="image {{ $top->title }}"
+                            title="{{ $top->title }}"></a>
                     <form class="fav-add" action="{{ route('favorite') }}" method="POST">
                         @csrf
                         <input name="movie_id" type="hidden" value="{{ $top->id }}">
