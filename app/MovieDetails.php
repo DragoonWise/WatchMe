@@ -25,12 +25,20 @@ class MovieDetails
     //   "vote_average" => float
     //   "vote_count" => int
 
+    protected $data;
+
     public function __construct($imdb)
     {
         $res = Http::get('http://localhost/WatchMe/public/' . 'api/movie/' . $imdb . '/details');
         $results = $res->json();
         $movies = $results;
+        $this->data = $movies;
         extract($movies);
+    }
+
+    public function __get($name)
+    {
+        return $this->data[$name];
     }
 
     public static function ByImdb($imdb)
