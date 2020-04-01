@@ -5,7 +5,6 @@ namespace App\Http\Requests;
 use App\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use Auth;
 
 class AdminUpdateAccount extends FormRequest
 {

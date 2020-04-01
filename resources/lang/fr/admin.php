@@ -10,4 +10,5 @@ return [
     'reactivate' => 'Réactiver',
     'resetpassword' => 'Réinitialiser le mot de passe',
     'usersubscription' => 'Abonnement Utilisateur',
+    'nosub'=> 'Aucun Abonnement',
 ];

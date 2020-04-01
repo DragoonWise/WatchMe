@@ -29,17 +29,22 @@
     </div>
     <div class="form-check">
         <input type="checkbox" name="parental_control" id="parental_control" class="form-check-input mt-2"
-            {{ $user->parental_control == 1 ? 'checked':'' }}
-            >
+            {{ $user->parental_control == 1 ? 'checked':'' }}>
         <label for="parental_control" class="font-weight-bold fs-20">{{ __('account.parental') }}</label>
         <p>{{ __('account.parental_description') }}</p>
     </div>
     <div class="form-group">
         <h3 class="font-weight-bold">{{ __('admin.usersubscription') }}</h3>
-        @if ($user->subscription_id == null)
-        <p>{{ __('account.nosub') }}</p>
-        @endif
-
+        <div class="btn-group btn-group-toggle row" data-toggle="">
+            <label class="col-12">
+                <input type="radio" name='formula' {{ $user->subscription_id == null ? "checked":"" }} value=null> @lang('admin.nosub')
+            </label>
+            @foreach ($sub as $item)
+            <label class="col-12">
+                <input type="radio" name='formula' value="{{$item->id}}" {{ $item->id == $user->subscription_id ? "checked":"" }}> {{$item->formula}}
+            </label>
+            @endforeach
+        </div>
     </div>
     <button type="submit" name="resetpassword"
         class="btn bg-dark beige font-weight-bold mt-4 fs-20 shadow-sm">{{ __('admin.resetpassword') }}</button>
