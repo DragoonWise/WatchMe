@@ -35,14 +35,21 @@ class Movie extends Model
         $results = $res->json()['results'];
         if ($results) {
             $movie = $results[0];
-            $obj = new Movie();
-            $obj->title = $movie['title'];
-            $obj->reference = $movie['id'];
-            $obj->urlMiniature = $movie['poster_path'];
-            $obj->save();
-            return $obj;
+            return self::decodeAPI($movie);
         }
         return null;
+    }
+
+    protected static function getAPIByNames($name)
+    {
+        $res = Http::get('http://localhost/WatchMe/public/' . 'api/movie/name/' . $name);
+        $results = $res->json()['results'];
+        $return = [];
+        foreach ($results as $movie) {
+            if ($movie['poster_path'])
+            $return[] = Movie::decodeAPI($movie);
+        }
+        return $return;
     }
 
     protected static function getAPIById($id)
@@ -54,6 +61,16 @@ class Movie extends Model
         $obj->title = $movie['title'];
         $obj->reference = $movie['id'];
         $obj->urlMiniature = $movie['poster_path'];
+        $obj->save();
+        return $obj;
+    }
+
+    protected static function decodeAPI($apiresult)
+    {
+        $obj = new Movie();
+        $obj->title = $apiresult['title'];
+        $obj->reference = $apiresult['id'];
+        $obj->urlMiniature = $apiresult['poster_path'];
         $obj->save();
         return $obj;
     }
@@ -149,10 +166,11 @@ class Movie extends Model
 
     public static function search($search)
     {
-        $result = Movie::where('title', 'LIKE', '%' . $search . '%')->get();
-
-        if (count($result) > 0) {
-            return $result;
+        $results = Movie::getAPIByNames($search);
+        $return = [];
+        foreach ($results as $movie) {
+            $return[] = $movie;
         }
+        return $return;
     }
 }
