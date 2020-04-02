@@ -52,7 +52,7 @@ Route::get('payment-cancel', function () {
 Route::get('/api/movies/populars/{page?}', 'ApiTmdbController@populars');
 Route::get('/api/movies/news/{page?}', 'ApiTmdbController@news');
 Route::get('/api/movies/{page?}', 'ApiTmdbController@movies');
-Route::get('/api/movie/name/{name}/{page?}', 'ApiTmdbController@movieByName');
+Route::get('/api/movie/{pc}/name/{name}/{page?}', 'ApiTmdbController@movieByName');
 Route::get('/api/movie/{id}', 'ApiTmdbController@movieById');
 Route::get('/api/movie/{id}/details', 'ApiTmdbController@movieDetails');
 Route::get('/api/movie/{id}/videos', 'ApiTmdbController@movieVideos');

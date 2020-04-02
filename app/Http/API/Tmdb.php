@@ -19,7 +19,7 @@ class Tmdb
     public function all(int $page = 1)
     {
         $user = Auth::user();
-        $adult = ($user->parental_control??false) ? '&include_adult=true' : '&include_adult=false';
+        $adult = ($user->parental_control??false) ? '&include_adult=false' : '&include_adult=true';
         return $this->endpointRequest('/3/discover/movie' . $this->startrequest . "&language=fr-FR&region=Fr&sort_by=popularity.desc$adult&include_video=false&page=$page");
     }
 
@@ -28,10 +28,9 @@ class Tmdb
         return $this->endpointRequest("/3/movie/{$id}{$this->startrequest}&language=fr-FR");
     }
 
-    public function findByName($name, int $page = 1)
+    public function findByName($name,bool $pc, int $page = 1)
     {
-        $user = Auth::user();
-        $adult = ($user->parental_control??false) ? '&include_adult=true' : '&include_adult=false';
+        $adult = $pc ? '&include_adult=false' : '&include_adult=true';
         return $this->endpointRequest("/3/search/movie{$this->startrequest}&language=fr-FR&region=Fr&sort_by=popularity.desc$adult&include_video=false&page=$page&query=" . htmlspecialchars($name));
     }
 
@@ -39,7 +38,7 @@ class Tmdb
     public function getPopulars(int $page = 1)
     {
         $user = Auth::user();
-        $adult = ($user->parental_control??false) ? '&include_adult=true' : '&include_adult=false';
+        $adult = ($user->parental_control??false) ? '&include_adult=false' : '&include_adult=true';
         return $this->endpointRequest('/3/movie/popular' . $this->startrequest . "$adult&language=fr-FR&page=$page");
     }
 
@@ -47,7 +46,7 @@ class Tmdb
     public function getNews(int $page = 1)
     {
         $user = Auth::user();
-        $adult = ($user->parental_control??false) ? '&include_adult=true' : '&include_adult=false';
+        $adult = ($user->parental_control??false) ? '&include_adult=false' : '&include_adult=true';
         return $this->endpointRequest('/3/discover/movie' . $this->startrequest . "&language=fr-FR&region=Fr&sort_by=release_date.desc$adult&include_video=true&with_release_type=3%7C2&vote_count.gte=1&primary_release_year=2020&page=$page");
     }
 

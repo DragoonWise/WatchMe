@@ -68,9 +68,9 @@ class ApiTmdbController extends Controller
      * @param  string  $name
      * @return \Illuminate\Http\Response
      */
-    public function movieByName($name, ?int $page = 1)
+    public function movieByName($pc,$name, ?int $page = 1)
     {
-        $tmdb = $this->tmdb->findByName($name, $page);
+        $tmdb = $this->tmdb->findByName($name,$pc, $page);
         return json_encode($tmdb);
     }
 

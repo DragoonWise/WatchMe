@@ -42,7 +42,9 @@ class Movie extends Model
 
     protected static function getAPIByNames($name)
     {
-        $res = Http::get('http://localhost/WatchMe/public/' . 'api/movie/name/' . $name);
+        $user = Auth::user();
+        $pc = $user->parental_control ?? 0;
+        $res = Http::get('http://localhost/WatchMe/public/' . "api/movie/$pc/name/$name");
         $results = $res->json()['results'];
         $return = [];
         foreach ($results as $movie) {
@@ -57,12 +59,7 @@ class Movie extends Model
         $res = Http::get('http://localhost/WatchMe/public/' . 'api/movie/' . $id);
         $results = $res->json();
         $movie = $results;
-        $obj = new Movie();
-        $obj->title = $movie['title'];
-        $obj->reference = $movie['id'];
-        $obj->urlMiniature = $movie['poster_path'];
-        $obj->save();
-        return $obj;
+        return self::decodeAPI($movie);
     }
 
     protected static function decodeAPI($apiresult)
