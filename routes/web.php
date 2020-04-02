@@ -58,7 +58,7 @@ Route::get('/api/movie/{id}/details', 'ApiTmdbController@movieDetails');
 Route::get('/api/movie/{id}/videos', 'ApiTmdbController@movieVideos');
 
 // Admin
-Route::get('/admin', 'AdminController@dashboard');
-Route::get('/admin/users', 'AdminController@users');
-Route::get('/admin/user/{id}', 'AdminController@user');
-Route::post('/admin/user/{id}', 'AdminController@userupdate');
+Route::get('/admin', 'AdminController@dashboard')->middleware('role:admin');
+Route::get('/admin/users', 'AdminController@users')->middleware('role:admin');
+Route::get('/admin/user/{id}', 'AdminController@user')->middleware('role:admin');
+Route::post('/admin/user/{id}', 'AdminController@userupdate')->middleware('role:admin');
