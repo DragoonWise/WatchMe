@@ -47,7 +47,7 @@ class Movie extends Model
         $return = [];
         foreach ($results as $movie) {
             if ($movie['poster_path'])
-            $return[] = Movie::decodeAPI($movie);
+                $return[] = Movie::decodeAPI($movie);
         }
         return $return;
     }
@@ -67,12 +67,16 @@ class Movie extends Model
 
     protected static function decodeAPI($apiresult)
     {
-        $obj = new Movie();
-        $obj->title = $apiresult['title'];
-        $obj->reference = $apiresult['id'];
-        $obj->urlMiniature = $apiresult['poster_path'];
-        $obj->save();
-        return $obj;
+        $movie = Movie::where('reference', $apiresult['id'])->first();
+        if (!$movie) {
+            $obj = new Movie();
+            $obj->title = $apiresult['title'];
+            $obj->reference = $apiresult['id'];
+            $obj->urlMiniature = $apiresult['poster_path'];
+            $obj->save();
+            return $obj;
+        }
+        return $movie;
     }
 
     public static function findByName($name)
