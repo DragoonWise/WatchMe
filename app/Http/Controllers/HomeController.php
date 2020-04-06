@@ -35,7 +35,7 @@ class HomeController extends Controller
 
     public function catalogue()
     {
-        $all = Movie::all();
+        $all = Movie::all()->sortBy('title');
         $images = new ImageHelper();
         return view('catalogue')->with('all', $all)->with('images', $images);
     }
