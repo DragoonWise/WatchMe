@@ -8,7 +8,8 @@ WatchMe - {{ __('account.subscription') }}
 @section('content')
 <div class="mx-3 bg-beige shadow">
     <h1 class="text-center pt-2 font-weight-bold">{{ __('account.subscription') }}</h1>
-    <form action="">
+    <form action="/subscription" method="post">
+        @csrf
         <div class="d-md-flex">
             {{-- Formula block --}}
             <div id="formula_block" class="col-12 col-md-6 px-5 pb-5">

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateAccount;
+use Illuminate\Http\Request;
 use App\LogActivity;
 use App\Subscription;
+use App\Billing;
+use App\BillingMethod;
 use Auth;
 use Hash;
 
@@ -52,9 +55,13 @@ class AccountController extends Controller
         return view('subscription')->with('formulas', $formulas);
     }
 
-    public function paiement()
+    public function payment(Request $request)
     {
-
+        $user = Auth::user();
+        $billing_method = BillingMethod::create($request->input('type'));
+        $billing_method->save();
+        $billing = Billing::create($request->input('type'), $user->id, $billing_method->id);
+        $billing->save();
         return view('account');
     }
 
