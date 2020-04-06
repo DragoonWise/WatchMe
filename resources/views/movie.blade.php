@@ -16,12 +16,12 @@ WatchMe - {{ $details->title }}
     <p class="beige"><span class="font-weight-bold">Synopsis : </span>{{ $details->overview }}</p>
 </div>
 @if(!empty($videos))
-echo "<div class='video-responsive'>
-    <iframe src='{$videos[0]->url}' class='video shadow' frameborder='0'
+<div class='video-responsive'>
+    <iframe src='{{ $videos[0]->url }}' class='video shadow' frameborder='0'
         allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
-</div>";
+</div>
 @else
-echo "<p class='text-center font-weight-bold beige'>Il n'y a pas de vidéo pour ce film.</p>";
+<p class='text-center font-weight-bold beige'>Il n'y a pas de vidéo pour ce film.</p>
 
 @endif
 
