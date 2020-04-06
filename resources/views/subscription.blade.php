@@ -52,20 +52,23 @@ WatchMe - {{ __('account.subscription') }}
                 <div id="credit_block" class="hidden">credit</div>
                 {{-- Paypal Form --}}
                 <div id="paypal_block" class="hidden">
-                    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" name="frmTransaction"
-                        id="frmTransaction">
-                        <input type="hidden" name="business" value="{{$paypal_id??''}}">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="item_name" value="{{$subscription->formula}}">
-                        <input type="hidden" name="item_number" value="{{$subscription->id}}">
-                        <input type="hidden" name="amount" value="{{$subscription->amount}}">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <input type="hidden" name="cancel_return" value="http://demo.expertphp.in/payment-cancel">
-                        <input type="hidden" name="return" value="http://demo.expertphp.in/payment-status">
-                    </form>
-                    <script>
-                        document.frmTransaction.submit();
-                    </script>
+                    <table border="0" cellpadding="10" cellspacing="0" align="center">
+                        <tr>
+                            <td align="center"></td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <a href="{{ route('payment') }}">
+                                    <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png"
+                                        border="0" alt="PayPal Logo">
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+
                 </div>
 
             </div>

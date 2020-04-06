@@ -42,10 +42,6 @@ Route::get('/log', 'AccountController@log')->name('log');
 // Test Paypal
 Route::get('payment', 'PayPalController@payment')->name('payment');
 
-Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
-
-Route::get('payment/success', 'PayPalController@success')->name('payment.success');
-
 
 
 // API
@@ -60,6 +56,6 @@ Route::get('/api/movie/{id}/videos', 'ApiTmdbController@movieVideos');
 // Admin
 Route::get('/admin', 'AdminController@dashboard')->middleware('role:admin');
 Route::get('/admin/users', 'AdminController@users')->middleware('role:admin');
-Route::post('/admin/user/activate','AdminController@useractivatetoggle')->middleware('role:admin');
+Route::post('/admin/user/activate', 'AdminController@useractivatetoggle')->middleware('role:admin');
 Route::get('/admin/user/{id}', 'AdminController@user')->middleware('role:admin');
 Route::post('/admin/user/{id}', 'AdminController@userupdate')->middleware('role:admin');
