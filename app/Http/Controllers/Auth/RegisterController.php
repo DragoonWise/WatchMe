@@ -71,4 +71,11 @@ class RegisterController extends Controller
             'auth' => 'user'
         ]);
     }
+
+    public function showRegistrationForm()
+    {
+        $news = Movie::getNews();
+        $images = new ImageHelper();
+        return view('auth.register')->with('news', $news)->with('images', $images);
+    }
 }

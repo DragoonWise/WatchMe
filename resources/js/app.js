@@ -28,7 +28,7 @@ $(function () {
             data: $(this).parent().serialize(),
             success: function (data) {
                 data = JSON.parse(data);
-                btn = $(".fav-btn-"+data['movie_id']);
+                btn = $(".fav-btn-" + data['movie_id']);
                 if (btn.hasClass('fav')) {
                     btn.removeClass('fav');
                     btn.html("<i class = 'far fa-star fs-20'> </i>");

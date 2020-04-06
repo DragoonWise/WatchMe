@@ -40,11 +40,11 @@ Route::get('/subscription', 'AccountController@subscription')->name('subscriptio
 Route::get('/log', 'AccountController@log')->name('log');
 
 // Test Paypal
-Route::get('payment-status', array('as' => 'payment.status', 'uses' => 'PaymentController@paymentInfo'));
-Route::get('payment', array('as' => 'payment', 'uses' => 'PaymentController@payment'));
-Route::get('payment-cancel', function () {
-    return 'Payment has been canceled';
-});
+Route::get('payment', 'PayPalController@payment')->name('payment');
+
+Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
+
+Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 
 
 
