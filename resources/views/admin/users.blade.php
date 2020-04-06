@@ -23,15 +23,23 @@
             <td>{{$user->login}}</td>
             <td>{{$user->email}}</td>
             <td>{{ ucfirst($user->subscription_id == NULL ? __('admin.no') : __('admin.yes')) }}</td>
-            <td>
-                <a href="{{ url('admin/user/'.$user->id) }}">
+            <td class='row'>
+                <a href="{{ url('admin/user/'.$user->id) }}" class='btn btn-primary col-6'>
                     <i class="fas fa-tools"></i> @lang('admin.modify')
                 </a>
-                /
-                {!! $user->deleted_at == NULL ?
-                '<i class="fas fa-trash"></i> '.__('admin.delete')
-                : '<i class="fas fa-trash-restore"></i> '.__('admin.reactivate')
-                !!}
+                @if(Auth::user() != $user)
+                <form action="/admin/user/activate" method="POST" class='col-6'>
+                    @csrf
+                    <input name="user_id" type="hidden" value="{{ $user->id }}">
+                    <button type="submit" class="btn btn-primary col-12">
+                        @if($user->trashed())
+                        <i class="fas fa-trash-restore"></i>@lang('admin.reactivate')
+                        @else
+                        <i class="fas fa-trash"></i>@lang('admin.delete')
+                        @endif
+                    </button>
+                </form>
+                @endif
             </td>
         </tr>
         @endforeach

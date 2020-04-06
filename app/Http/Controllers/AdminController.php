@@ -31,7 +31,7 @@ class AdminController extends Controller
      */
     public function users()
     {
-        $users = User::paginate(15);
+        $users = User::withTrashed()->paginate(15);
 
         return view('admin/users', ['users' => $users]);
     }
@@ -46,7 +46,7 @@ class AdminController extends Controller
     {
         $user = User::find($id);
         $sub = Subscription::all();
-        return view('admin/user', ['user' => $user,'sub'=>$sub]);
+        return view('admin/user', ['user' => $user, 'sub' => $sub]);
     }
 
     /**
@@ -68,6 +68,21 @@ class AdminController extends Controller
             $user->subscription_id = $sub;
             $user->save();
         }
+        return back();
+    }
+
+    /**
+     * Method Post on User Activate
+     */
+    public function useractivatetoggle(Request $request)
+    {
+        $user = User::find($request->input('user_id'));
+        if ($user->trashed()) {
+            $user->restore();
+        } else {
+            $user->delete();
+        }
+        $user->save();
         return back();
     }
 }
