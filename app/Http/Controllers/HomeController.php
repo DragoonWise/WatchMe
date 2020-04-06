@@ -52,7 +52,8 @@ class HomeController extends Controller
         $movie = Movie::find($id);
         $details = $movie->getDetails();
         $videos = $movie->getVideos();
-        return view('movie')->with('details', $details)->with('videos', $videos);
+        $images = new ImageHelper();
+        return view('movie')->with('movie',$movie)->with('details', $details)->with('videos', $videos)->with('images', $images);
     }
 
     public function search(Search $request)

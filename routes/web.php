@@ -42,6 +42,7 @@ Route::get('/log', 'AccountController@log')->name('log');
 
 // API
 Route::get('/api/movies/populars/{page?}', 'ApiTmdbController@populars');
+Route::get('/api/movies/similars/{imdb}', 'ApiTmdbController@similars');
 Route::get('/api/movies/news/{page?}', 'ApiTmdbController@news');
 Route::get('/api/movies/{page?}', 'ApiTmdbController@movies');
 Route::get('/api/movie/{pc}/name/{name}/{page?}', 'ApiTmdbController@movieByName');

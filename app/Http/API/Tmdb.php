@@ -50,6 +50,12 @@ class Tmdb
         return $this->endpointRequest('/3/discover/movie' . $this->startrequest . "&language=fr-FR&region=Fr&sort_by=release_date.desc$adult&include_video=true&with_release_type=3%7C2&vote_count.gte=1&primary_release_year=2020&page=$page");
     }
 
+    // https://api.themoviedb.org/3/movie/{movie_id}/similar?api_key=<<api_key>>&language=en-US&page=1
+    public function getSimilars(int $imdb)
+    {
+        return $this->endpointRequest('/3/movie/'.$imdb .'/similar'. $this->startrequest . '&language=fr-FR');
+    }
+
     // https://api.themoviedb.org/3/movie/36647?api_key=07781e9d3ce562b41e44f16649ef204f&language=en-US
     public function getDetails(int $imdb)
     {

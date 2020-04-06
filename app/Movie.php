@@ -94,6 +94,20 @@ class Movie extends Model
         return self::getAPIById($id);
     }
 
+    public function getSimilars()
+    {
+        $res = Http::get('http://localhost/WatchMe/public/' . 'api/movies/similars/' . $this->reference);
+        $results = $res->json();
+        $movies = $results['results'];
+        // dd($movies);
+        $return = [];
+        foreach ($movies as $movie) {
+            if ($movie['poster_path'])
+                $return[] = self::findByTmdbId($movie['id']);
+        }
+        return $return;
+    }
+
     public static function getPopulars(int $page = 1)
     {
         $res = Http::get('http://localhost/WatchMe/public/' . 'api/movies/populars/' . $page);

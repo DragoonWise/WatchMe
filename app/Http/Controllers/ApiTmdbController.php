@@ -26,6 +26,18 @@ class ApiTmdbController extends Controller
         return json_encode($tmdb);
     }
 
+        /**
+     * Display a listing of the resource.
+     *
+     * @param  int|null  $page
+     * @return \Illuminate\Http\Response
+     */
+    public function similars(int $imdb)
+    {
+        $tmdb = $this->tmdb->getSimilars($imdb);
+        return json_encode($tmdb);
+    }
+
     /**
      * Display the specified resource.
      *

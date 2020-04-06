@@ -24,5 +24,24 @@ WatchMe - {{ $details->title }}
 <p class='text-center font-weight-bold beige'>Il n'y a pas de vidéo pour ce film.</p>
 
 @endif
+<h2 class="beige font-weight-bold text-center">Films Similaires</h2>
+@foreach($movie->getSimilars() as $sim)
+<div id="movie{{ $sim->id }}" class="col-3 float-left">
+    <a href="{{ route('movie.id', ['id'=>$sim->id]) }}"><img class="img-fluid"
+            src="{{ $images->getImageURL($sim->urlMiniature) }}" alt="image {{ $sim->title }}"
+            title="{{ $sim->title }}"></a>
+    <form class="fav-add" action="{{ route('favorite') }}" method="POST">
+        @csrf
+        <input name="movie_id" type="hidden" value="{{ $sim->id }}">
+        @if($sim->isFavorite())
+        <div class="fav-btn fav-btn-{{ $sim->id }} btn favicon bg-none fav"><i
+                class="fas fa-star fs-20"></i></div>
+        @else
+        <div class="fav-btn fav-btn-{{ $sim->id }} btn favicon bg-none"><i
+                class="far fa-star fs-20"></i></div>
+        @endif
 
+    </form>
+</div>
+@endforeach
 @endsection
