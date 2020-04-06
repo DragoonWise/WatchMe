@@ -17,7 +17,8 @@ WatchMe - {{ __('account.subscription') }}
 
                 @foreach($formulas as $formula)
                 <div class="custom-control custom-radio">
-                    <input type="radio" id="formula{{$formula->id}}" name="formula" class="custom-control-input">
+                    <input type="radio" id="formula{{$formula->id}}" name="formula" class="custom-control-input"
+                        value="formula{{$formula->id}}">
                     <label class="custom-control-label" for="formula{{$formula->id}}"><span
                             class="font-weight-bold">{{$formula->formula}}</span> - {{$formula->amount}} €</label>
                     <p>{{$formula->description}}</p>
@@ -55,7 +56,7 @@ WatchMe - {{ __('account.subscription') }}
 
             </div>
         </div>
-        <div class="text-center pb-2"><button type="submit" name="update"
+        <div class="text-center pb-2"><button type="submit" name="subscribe"
                 class="btn bg-dark beige font-weight-bold mt-4 fs-20 shadow-sm">{{ __('account.subscribe') }}
             </button>
         </div>
