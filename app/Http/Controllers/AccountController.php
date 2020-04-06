@@ -52,6 +52,12 @@ class AccountController extends Controller
         return view('subscription')->with('formulas', $formulas);
     }
 
+    public function paiement()
+    {
+
+        return view('account');
+    }
+
     public function log()
     {
         $user = Auth::user();

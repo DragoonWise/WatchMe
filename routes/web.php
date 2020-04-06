@@ -39,10 +39,6 @@ Route::post('/account', 'AccountController@update');
 Route::get('/subscription', 'AccountController@subscription')->name('subscription');
 Route::get('/log', 'AccountController@log')->name('log');
 
-// Test Paypal
-Route::get('payment', 'PayPalController@payment')->name('payment');
-
-
 
 // API
 Route::get('/api/movies/populars/{page?}', 'ApiTmdbController@populars');

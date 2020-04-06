@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('description')
-{{ __('main.description') }}@endsection
+@lang('main.description')
 @section('title')
 WatchMe - {{ __('account.log') }}
 @endsection

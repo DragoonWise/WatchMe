@@ -9,16 +9,16 @@ $(function () {
     })
 
     // Subscription buttons
-    $("#credit_card_btn").on('click', function (e) {
-        e.preventDefault();
-        $("#credit_block").show();
-        $("#paypal_block").hide();
-    })
-    $("#paypal_btn").on('click', function (e) {
-        e.preventDefault();
-        $("#paypal_block").show();
-        $("#credit_block").hide();
-    })
+    // $("#credit_card_btn").on('click', function (e) {
+    //     e.preventDefault();
+    //     $("#credit_block").show();
+    //     $("#paypal_block").hide();
+    // })
+    // $("#paypal_btn").on('click', function (e) {
+    //     e.preventDefault();
+    //     $("#paypal_block").show();
+    //     $("#credit_block").hide();
+    // })
 
     // Favorite buttons
     $(".fav-btn").on("click", function (e) {

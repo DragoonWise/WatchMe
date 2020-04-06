@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('description')
-{{ __('main.description') }}
+@lang('main.description')
 @endsection
 @section('title')
 WatchMe - {{ __('main.catalog') }}

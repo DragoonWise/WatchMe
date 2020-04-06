@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('description')
-{{ __('main.description') }}@endsection
+@lang('main.description')
+@endsection
 @section('title')
 WatchMe - {{ __('account.subscription') }}
 @endsection
@@ -39,42 +40,23 @@ WatchMe - {{ __('account.subscription') }}
                 <h2 class="text-center font-weight-bold">Moyen de paiement</h2>
                 {{-- Method Choice --}}
                 <div class="d-flex align-items-center justify-content-center">
-                    <button id="credit_card_btn" class="btn btn-dark text-center d-flex mx-2"><i
-                            class="far fa-credit-card fs-30"></i>
+                    <input type="radio" id="type1" name="type" value="credit_card">
+                    <label for="type1" id="credit_card_btn" class="btn btn-dark text-center d-flex mx-2">
+                        <i class="far fa-credit-card fs-30"></i>
                         <p class="fs-20 ml-2 mb-0">Carte bancaire</p>
-                    </button>
-                    <button id="paypal_btn" class="btn btn-dark text-center d-flex mx-2"><i
-                            class="fab fa-cc-paypal fs-30"></i>
+                    </label>
+                    <input type="radio" id="type2" name="type" value="paypal">
+                    <label for="type2" id="paypal_btn" class="btn btn-dark text-center d-flex mx-2">
+                        <i class="fab fa-cc-paypal fs-30"></i>
                         <p class="fs-20 ml-2 mb-0">Paypal</p>
-                    </button>
-                </div>
-                {{-- Credit Card Form --}}
-                <div id="credit_block" class="hidden">credit</div>
-                {{-- Paypal Form --}}
-                <div id="paypal_block" class="hidden">
-                    <table border="0" cellpadding="10" cellspacing="0" align="center">
-                        <tr>
-                            <td align="center"></td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <a href="{{ route('payment') }}">
-                                    <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png"
-                                        border="0" alt="PayPal Logo">
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
-
-
-
-
+                    </label>
                 </div>
 
             </div>
         </div>
         <div class="text-center pb-2"><button type="submit" name="update"
-                class="btn bg-dark beige font-weight-bold mt-4 fs-20 shadow-sm">{{ __('account.subscribe') }} </button>
+                class="btn bg-dark beige font-weight-bold mt-4 fs-20 shadow-sm">{{ __('account.subscribe') }}
+            </button>
         </div>
     </form>
 </div>
