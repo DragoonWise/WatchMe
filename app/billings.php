@@ -26,10 +26,17 @@ class Billing extends Model
         return $billing;
     }
 
+    public static function unsub()
+    {
+        $user = Auth::user();
+        $billing = Billing::where('deleted_at', null)->where('users_id', $user->id)->delete();
+        return $billing;
+    }
+
     public static function getInfosUser()
     {
         $user = Auth::user();
-        $billing = Billing::Join('users', 'users.id', '=', 'billings.users_id')->where('users.id', $user->id)->select('billings.*')->get();
+        $billing = Billing::Join('users', 'users.id', '=', 'billings.users_id')->where('users.id', $user->id)->where('billings.deleted_at', null)->select('billings.*')->get();
         return $billing;
     }
 }

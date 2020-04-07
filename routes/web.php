@@ -36,6 +36,7 @@ Route::post('/contact', function (Request $request) {
 // Account
 Route::get('/account', 'AccountController@account')->name('account');
 Route::post('/account', 'AccountController@update');
+Route::get('/unsub', 'AccountController@unsub')->name('unsub');
 Route::get('/subscription', 'AccountController@subscription')->name('subscription');
 Route::post('/subscription', 'AccountController@payment')->name('payment');
 Route::get('/log', 'AccountController@log')->name('log');

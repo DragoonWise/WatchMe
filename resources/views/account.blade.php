@@ -58,7 +58,7 @@ WatchMe - @lang('main.account')
             <p><span class="font-weight-bold">Depuis le : </span>@foreach($billing as
                 $bil){{ $bil->created_at }}@endforeach</p>
 
-            <a class="btn btn-dark beige fs-20 shadow-sm font-weight-bold" href="">
+            <a class="btn btn-dark beige fs-20 shadow-sm font-weight-bold" href="{{ route('unsub') }}">
                 {{ __('main.remove') }}
             </a>
             @endif

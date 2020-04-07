@@ -48,13 +48,22 @@ class AccountController extends Controller
             }
         }
         $user->save();
-        return redirect('/account');
+        return view('/account');
     }
 
     public function subscription()
     {
         $formulas = Subscription::all();
         return view('subscription')->with('formulas', $formulas);
+    }
+
+    public function unsub()
+    {
+        $user = Auth::user();
+        $user->subscription_id = null;
+        $user->save();
+        $billing = Billing::unsub();
+        return redirect('account');
     }
 
     public function payment(Request $request)
@@ -68,7 +77,9 @@ class AccountController extends Controller
         $user->subscription_id = $request->input('formula');
         $user->billing_method_id = $billing_method->id;
         $user->save();
-        return view('account');
+        $subscription = Subscription::GetInfosUser();
+        $billing = Billing::GetInfosUser();
+        return view('account')->with('subscription', $subscription)->with('billing', $billing);
     }
 
     public function log()
