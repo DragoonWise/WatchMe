@@ -25,7 +25,9 @@ class AccountController extends Controller
 
     public function account()
     {
-        return view('account');
+        $subscription = Subscription::GetInfosUser();
+        $billing = Billing::GetInfosUser();
+        return view('account')->with('subscription', $subscription)->with('billing', $billing);
     }
 
     public function update(UpdateAccount $request)
@@ -61,8 +63,11 @@ class AccountController extends Controller
 
         $billing_method = BillingMethod::create($request->input('type'));
         $billing_method->save();
-        $billing = Billing::create($request->input('type'), $user->id, $billing_method->id);
+        $billing = Billing::create($request->input('formula'), $user->id, $billing_method->id);
         $billing->save();
+        $user->subscription_id = $request->input('formula');
+        $user->billing_method_id = $billing_method->id;
+        $user->save();
         return view('account');
     }
 

@@ -18,7 +18,7 @@ WatchMe - @lang('account.subscription')
                 @foreach($formulas as $formula)
                 <div class="custom-control custom-radio">
                     <input type="radio" id="formula{{$formula->id}}" name="formula" class="custom-control-input"
-                        value="formula{{$formula->id}}">
+                        value="{{$formula->id}}">
                     <label class="custom-control-label" for="formula{{$formula->id}}"><span
                             class="font-weight-bold">{{$formula->formula}}</span> - {{$formula->amount}} €</label>
                     <p>{{$formula->description}}</p>

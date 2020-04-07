@@ -22,6 +22,7 @@ return [
     'legal' => 'Legal Notice',
     'terms' => 'Terms of Service',
     'contact' => 'Contact',
-    'add' => 'Add'
+    'add' => 'Add',
+    'remove' => 'Unsubscribe'
 
 ];

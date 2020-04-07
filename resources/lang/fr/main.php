@@ -22,6 +22,7 @@ return [
     'legal' => 'Mentions légales',
     'terms' => 'Conditions d\'utilisation',
     'contact' => 'Nous contacter',
-    'add' => 'Ajouter'
+    'add' => 'Ajouter',
+    'remove' => 'Résilier'
 
 ];

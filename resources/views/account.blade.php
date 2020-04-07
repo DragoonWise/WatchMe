@@ -52,6 +52,15 @@ WatchMe - @lang('main.account')
             <a class="btn btn-dark beige fs-20 shadow-sm font-weight-bold" href="{{ route('subscription') }}">
                 @lang('main.add')
             </a>
+            @else
+            <p><span class="font-weight-bold">Abonnement : </span>@foreach($subscription as
+                $sub){{ $sub->formula }}@endforeach</p>
+            <p><span class="font-weight-bold">Depuis le : </span>@foreach($billing as
+                $bil){{ $bil->created_at }}@endforeach</p>
+
+            <a class="btn btn-dark beige fs-20 shadow-sm font-weight-bold" href="">
+                {{ __('main.remove') }}
+            </a>
             @endif
 
         </div>
