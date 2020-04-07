@@ -58,6 +58,7 @@ class AccountController extends Controller
     public function payment(Request $request)
     {
         $user = Auth::user();
+
         $billing_method = BillingMethod::create($request->input('type'));
         $billing_method->save();
         $billing = Billing::create($request->input('type'), $user->id, $billing_method->id);

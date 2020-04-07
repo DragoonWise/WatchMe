@@ -16,10 +16,10 @@ class CreateBillingsTable extends Migration
         Schema::create('billings', function (Blueprint $table) {
             $table->id();
             $table->string('paiement_type', 255);
-            $table->string('ticket_tumber', 255);
-            $table->string('currency_code', 255);
-            $table->string('payment_status', 255);
-            $table->float('amount_ht');
+            $table->string('ticket_number', 255)->nullable();
+            $table->string('currency_code', 255)->nullable();
+            $table->string('payment_status', 255)->nullable();
+            $table->float('amount_ht')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreignId('users_id')->constrained();

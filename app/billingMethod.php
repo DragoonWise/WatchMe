@@ -14,9 +14,9 @@ class BillingMethod extends Model
     public static function create($type)
     {
         $billing_method = new BillingMethod();
-        $billing_method->insert(
-            ['type' => $type]
-        );
+
+        $billing_method->type = $type;
+        $billing_method->save;
         return $billing_method;
     }
 }
