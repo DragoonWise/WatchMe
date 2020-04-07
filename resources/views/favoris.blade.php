@@ -3,10 +3,10 @@
 @lang('main.description')
 @endsection
 @section('title')
-WatchMe - {{ __('main.favorites') }}
+WatchMe - @lang('main.favorites')
 @endsection
 @section('content')
-<h1 class="beige font-weight-bold mx-5">{{ __('main.favorites') }}</h1>
+<h1 class="beige font-weight-bold mx-5">@lang('main.favorites')</h1>
 <div class="row mx-md-2">
     @foreach($favorites as $favorite)
     <div id="movie{{ $favorite->id }}" class="col-lg-2 col-md-4 col-12 float-left mb-4">

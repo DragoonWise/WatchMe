@@ -12,7 +12,7 @@ class ApiTest extends TestCase
      *
      * @return void
      */
-    public function testMovies()
+    public function testAPIMovies()
     {
         $response = $this->get('/api/movies');
 

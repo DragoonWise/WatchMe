@@ -7,7 +7,7 @@ WatchMe
 @endsection
 @section('content')
 
-<h4 class="pl-5 beige font-weight-bold mt-3">{{ __('main.news') }}</h4>
+<h4 class="pl-5 beige font-weight-bold mt-3">@lang('main.news')</h4>
 <div class="text-center my-3">
     <div id="newsCarousel" class="carousel slide w-100">
         <div class="carousel-inner w-100" role="listbox">
@@ -48,17 +48,17 @@ WatchMe
         <a class="carousel-control-prev justify-content-start pl-2 slide-icon" href="#newsCarousel" role="button"
             data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">{{ __('main.previous') }}</span>
+            <span class="sr-only">@lang('main.previous')</span>
         </a>
         <a class="carousel-control-next justify-content-end pr-2 slide-icon" href="#newsCarousel" role="button"
             data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">{{ __('main.next') }}</span>
+            <span class="sr-only">@lang('main.next')</span>
         </a>
     </div>
 </div>
 </div>
-<h4 class="pl-5 beige font-weight-bold mt-3">{{ __('main.top') }}</h4>
+<h4 class="pl-5 beige font-weight-bold mt-3">@lang('main.top')</h4>
 <div class="text-center my-3">
     <div id="topCarousel" class="carousel slide w-100">
         <div class="carousel-inner w-100" role="listbox">
@@ -99,17 +99,17 @@ WatchMe
         <a class="carousel-control-prev justify-content-start pl-2 slide-icon" href="#topCarousel" role="button"
             data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">{{ __('main.previous') }}</span>
+            <span class="sr-only">@lang('main.previous')</span>
         </a>
         <a class="carousel-control-next justify-content-end pr-2 slide-icon" href="#topCarousel" role="button"
             data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">{{ __('main.next') }}</span>
+            <span class="sr-only">@lang('main.next')</span>
         </a>
     </div>
 </div>
 </div>
-{{-- <h4 class="pl-5 beige font-weight-bold mt-3">{{ __('main.advice') }}</h4>
+{{-- <h4 class="pl-5 beige font-weight-bold mt-3">@lang('main.advice')</h4>
 <div class="text-center my-3">
     <div id="adviceCarousel" class="carousel slide w-100">
         <div class="carousel-inner w-100" role="listbox">
@@ -120,12 +120,12 @@ WatchMe
         <a class="carousel-control-prev justify-content-start pl-2 slide-icon" href="#adviceCarousel" role="button"
             data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">{{ __('main.previous') }}</span>
+            <span class="sr-only">@lang('main.previous')</span>
         </a>
         <a class="carousel-control-next justify-content-end pr-2 slide-icon" href="#adviceCarousel" role="button"
             data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">{{ __('main.next') }}</span>
+            <span class="sr-only">@lang('main.next')</span>
         </a>
     </div>
 </div> --}}

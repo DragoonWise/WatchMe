@@ -3,11 +3,11 @@
 @lang('main.description')
 @endsection
 @section('title')
-WatchMe - {{ __('account.subscription') }}
+WatchMe - @lang('account.subscription')
 @endsection
 @section('content')
 <div class="mx-3 bg-beige shadow">
-    <h1 class="text-center pt-2 font-weight-bold">{{ __('account.subscription') }}</h1>
+    <h1 class="text-center pt-2 font-weight-bold">@lang('account.subscription')</h1>
     <form action="/subscription" method="post">
         @csrf
         <div class="d-md-flex">
@@ -57,7 +57,7 @@ WatchMe - {{ __('account.subscription') }}
             </div>
         </div>
         <div class="text-center pb-2"><button type="submit" name="subscribe"
-                class="btn bg-dark beige font-weight-bold mt-4 fs-20 shadow-sm">{{ __('account.subscribe') }}
+                class="btn bg-dark beige font-weight-bold mt-4 fs-20 shadow-sm">@lang('account.subscribe')
             </button>
         </div>
     </form>

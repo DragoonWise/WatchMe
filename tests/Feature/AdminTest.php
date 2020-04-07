@@ -12,11 +12,11 @@ class AdminTest extends TestCase
      *
      * @return void
      */
-    public function testDashboardAccess()
+    public function testAdminDashboardWithoutAccess()
     {
         $response = $this->get('/admin');
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
 
     /**
@@ -24,11 +24,11 @@ class AdminTest extends TestCase
      *
      * @return void
      */
-    public function testUsersAccess()
+    public function testAdminUsersWithoutAccess()
     {
         $response = $this->get('/admin/users');
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
 
     /**
@@ -36,10 +36,10 @@ class AdminTest extends TestCase
      *
      * @return void
      */
-    public function testUserAccess()
+    public function testAdminUserWithoutAccess()
     {
         $response = $this->get('/admin/user/1');
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
 }

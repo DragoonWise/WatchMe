@@ -3,10 +3,10 @@
 @lang('main.description')
 @endsection
 @section('title')
-WatchMe - {{ __('main.catalog') }}
+WatchMe - @lang('main.catalog')
 @endsection
 @section('content')
-<h1 class="beige font-weight-bold mx-5">{{ __('main.catalog') }}</h1>
+<h1 class="beige font-weight-bold mx-5">@lang('main.catalog')</h1>
 <div class="row mx-md-2">
     @foreach($all as $movie)
     <div id="movie{{ $movie->id }}" class="col-lg-2 col-md-4 col-12 float-left mb-4">
